@@ -17,7 +17,7 @@ public class SimpleGfxRepresentableFactory implements RepresentableFactory {
         switch (type) {
 
             case FIELD:
-                representable = new SimpleGfxField(400, 400);
+                representable = new SimpleGfxField();
                 break;
 
             case PLAYER_BASE:
