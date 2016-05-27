@@ -11,8 +11,8 @@ import org.academiadecodigo.simplegraphics.graphics.Shape;
 public class SimpleGfxMovableRepresentation extends SimpleGfxRepresentation implements MovableRepresentable {
 
 
-    public SimpleGfxMovableRepresentation(Shape shape) {
-        super(shape);
+    public SimpleGfxMovableRepresentation(Shape shape, int xPos, int yPos) {
+        super(shape, xPos, yPos);
     }
 
 

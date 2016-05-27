@@ -8,12 +8,16 @@ import org.academiadecodigo.towerdefense.object.representable.Representable;
 public abstract class AbstractObject {
     private Representable representation;
     private GameObjectType type;
+    private int xPos;
+    private int yPos;
 
 
-    public AbstractObject(Representable representation, GameObjectType type) {
+    public AbstractObject(Representable representation, GameObjectType type, int xPos, int yPos) {
 
         this.representation = representation;
         this.type = type;
+        this.xPos = xPos;
+        this.yPos = yPos;
     }
 
 

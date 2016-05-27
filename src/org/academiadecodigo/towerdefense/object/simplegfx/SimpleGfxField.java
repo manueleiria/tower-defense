@@ -12,8 +12,8 @@ public class SimpleGfxField extends SimpleGfxRepresentation {
 
 
 
-    public SimpleGfxField(GameObjectType type) {
+    public SimpleGfxField(GameObjectType type, int xPos, int yPos) {
 
-        super(new Rectangle(MARGIN_LEFT, MARGIN_TOP, type.getCols() * getCellSize(), type.getRows() * getCellSize()));
+        super(new Rectangle(xPos + MARGIN_LEFT, yPos + MARGIN_TOP, type.getCols() * getCellSize(), type.getRows() * getCellSize()), xPos, yPos);
     }
 }

@@ -15,8 +15,8 @@ public class Field extends AbstractObject {
     private boolean[][] path;
 
 
-    public Field(Representable representation) {
-        super(representation, GameObjectType.FIELD);
+    public Field(Representable representation, int xPos, int yPos) {
+        super(representation, GameObjectType.FIELD, xPos, yPos);
     }
 
 
