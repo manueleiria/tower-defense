@@ -7,6 +7,7 @@ import org.academiadecodigo.simplegraphics.graphics.Shape;
  * Created by codecadet on 23/05/16.
  */
 public class SimpleGfxRepresentation implements Representable {
+    private static final double CELL_SIZE = 32;
     private Shape shape;
 
 
@@ -31,5 +32,9 @@ public class SimpleGfxRepresentation implements Representable {
     public int getY() {
 
         return 0;
+    }
+
+    public static double getCellSize() {
+        return CELL_SIZE;
     }
 }

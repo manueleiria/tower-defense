@@ -6,10 +6,15 @@ import org.academiadecodigo.towerdefense.object.representable.MovableRepresentab
  * Created by codecadet on 23/05/16.
  */
 public abstract class AbstractEnemy extends AbstractMovableObject {
+        int xPos;
+        int yPos;
 
+    public AbstractEnemy(MovableRepresentable representation, GameObjectType type) {
+        super(representation, type);
 
-    public AbstractEnemy(MovableRepresentable representation) {
+    }
 
-        super(representation);
+    public void walk(Boolean[][] path) {
+
     }
 }
