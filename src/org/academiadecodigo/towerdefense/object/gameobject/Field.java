@@ -8,10 +8,9 @@ import org.academiadecodigo.towerdefense.object.representable.Representable;
  * Created by codecadet on 23/05/16.
  */
 public class Field extends AbstractObject {
-    int xPlayerBase;
-    int yPlayerBase;
-    int xEnemyBase;
-    int yEnemyBase;
+
+    private PlayerBase playerBase;
+    private EnemyBase enemyBase;
     private boolean[][] path;
 
 
@@ -20,10 +19,10 @@ public class Field extends AbstractObject {
     }
 
 
-    public void init(Level currentLevel) {
-        LevelFlow.createPlayerBase();
-        LevelFlow.createEnemyBase();
-        LevelFlow.drawPath(currentLevel);
+    public void init(ObjectFactory factory, Level currentLevel) {
+        playerBase = LevelFlow.createPlayerBase(factory, currentLevel);
+        enemyBase = LevelFlow.createEnemyBase(factory, currentLevel);
+        LevelFlow.drawPath(currentLevel, playerBase.getxPos(), playerBase.getyPos(), enemyBase.getxPos(), enemyBase.getyPos());
     }
 
 
@@ -32,3 +31,5 @@ public class Field extends AbstractObject {
     }
 
 }
+
+

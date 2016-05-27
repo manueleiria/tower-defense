@@ -20,6 +20,13 @@ public abstract class AbstractObject {
         this.yPos = yPos;
     }
 
+    public int getxPos() {
+        return xPos;
+    }
+
+    public int getyPos() {
+        return yPos;
+    }
 
     public Representable getRepresentation() {
 

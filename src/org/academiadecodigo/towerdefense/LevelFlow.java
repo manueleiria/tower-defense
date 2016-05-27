@@ -1,11 +1,12 @@
 package org.academiadecodigo.towerdefense;
 
+import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Line;
+import org.academiadecodigo.towerdefense.object.gameobject.EnemyBase;
 import org.academiadecodigo.towerdefense.object.gameobject.GameObjectType;
 import org.academiadecodigo.towerdefense.object.gameobject.ObjectFactory;
 import org.academiadecodigo.towerdefense.object.gameobject.PlayerBase;
-import org.academiadecodigo.towerdefense.object.gameobject.enemy.BaseEnemy;
-import org.academiadecodigo.towerdefense.object.representable.Representable;
+
 
 /**
  * Created by <vi.KING_> Ralfe Elias on 27/05/16.
@@ -14,41 +15,39 @@ public class LevelFlow {
 
     private static Line path;
     private static Level currentLevel;
-    private static ObjectFactory factory;
-    private static PlayerBase playerBase;
-    private static BaseEnemy enemyBase;
 
-    public static void drawPath(Level currentLevel) {
+    public static void drawPath(Level currentLevel, int playerX, int playerY, int enemyX, int enemyY) {
 
         switch (currentLevel) {
             case LEVEL1:
-                path = new Line(getEnemyBaseX(), getEnemyBaseY(), getPlayerBaseX(), getPlayerBaseY());
+                path = new Line(enemyX * 32, enemyY* 32, playerX * 32, playerY * 32);
                 path.draw();
                 break;
         }
     }
 
-    public static void createPlayerBase() {
-        playerBase = (PlayerBase) factory.createObject(GameObjectType.PLAYER_BASE);
+    public static PlayerBase createPlayerBase(ObjectFactory factory, Level currentLevel) {
+
+        switch (currentLevel) {
+
+            case LEVEL1:
+                return (PlayerBase) factory.createObject(GameObjectType.PLAYER_BASE, 3, 5);
+            default:
+                return null;
+        }
     }
 
-    public static void createEnemyBase() {
-        enemyBase = (BaseEnemy) factory.createObject(GameObjectType.BASE_ENEMY);
+    public static EnemyBase createEnemyBase(ObjectFactory factory, Level currentLevel) {
+
+        switch (currentLevel) {
+
+            case LEVEL1:
+                return (EnemyBase) factory.createObject(GameObjectType.ENEMY_BASE, 10, 5);
+            default:
+                return null;
+        }
+
     }
 
-    public static int getPlayerBaseX() {
-        return ((Representable)playerBase).getX();
-    }
 
-    public static int getPlayerBaseY() {
-        return ((Representable)playerBase).getY();
-    }
-
-    public static int getEnemyBaseX() {
-        return ((Representable)enemyBase).getX();
-    }
-
-    public static int getEnemyBaseY() {
-        return ((Representable)enemyBase).getY();
-    }
 }

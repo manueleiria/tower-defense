@@ -23,6 +23,7 @@ public class Game {
     public void start() {
 
         Field field = (Field) factory.createObject(GameObjectType.FIELD, 0, 0);
-        field.init(currentLevel);
+        field.init(factory, currentLevel);
+
     }
 }
