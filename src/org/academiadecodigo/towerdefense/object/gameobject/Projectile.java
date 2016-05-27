@@ -8,8 +8,8 @@ import org.academiadecodigo.towerdefense.object.representable.MovableRepresentab
 public class Projectile extends AbstractMovableObject {
 
 
-    public Projectile(MovableRepresentable representation) {
+    public Projectile(MovableRepresentable representation, int xPos, int yPos) {
 
-        super(representation, GameObjectType.PROJECTILE);
+        super(representation, GameObjectType.PROJECTILE, xPos, yPos);
     }
 }

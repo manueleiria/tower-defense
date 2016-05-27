@@ -18,29 +18,29 @@ public class ObjectFactory {
     }
 
 
-    public AbstractObject createObject(GameObjectType type) {
+    public AbstractObject createObject(GameObjectType type, int xPos, int yPos) {
        AbstractObject gameObject = null;
 
        switch (type) {
 
            case FIELD:
-               gameObject = new Field(factory.createRepresentableObject(type));
+               gameObject = new Field(factory.createRepresentableObject(type, xPos, yPos), xPos, yPos);
                break;
 
            case PLAYER_BASE:
-               gameObject = new PlayerBase(factory.createRepresentableObject(type));
+               gameObject = new PlayerBase(factory.createRepresentableObject(type, xPos, yPos), xPos, yPos);
                break;
 
            case PROJECTILE:
-               gameObject = new Projectile((MovableRepresentable) factory.createRepresentableObject(type));
+               gameObject = new Projectile((MovableRepresentable) factory.createRepresentableObject(type, xPos, yPos), xPos, yPos);
                break;
 
            case TOWER:
-               gameObject = new Tower(factory.createRepresentableObject(type));
+               gameObject = new Tower(factory.createRepresentableObject(type, xPos, yPos), xPos, yPos);
                break;
 
            case BASE_ENEMY:
-               gameObject = new BaseEnemy((MovableRepresentable) factory.createRepresentableObject(type));
+               gameObject = new BaseEnemy((MovableRepresentable) factory.createRepresentableObject(type, xPos, yPos), xPos, yPos);
                break;
        }
 

@@ -11,8 +11,8 @@ import org.academiadecodigo.towerdefense.object.representable.MovableRepresentab
 public class SimpleGfxEnemy extends SimpleGfxMovableRepresentation {
 
 
-    public SimpleGfxEnemy(Shape shape) {
-        super(shape);
+    public SimpleGfxEnemy(Shape shape, int xPos, int yPos) {
+        super(shape, xPos, yPos);
     }
 
 
