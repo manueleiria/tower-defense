@@ -5,11 +5,11 @@ import org.academiadecodigo.towerdefense.object.representable.Representable;
 /**
  * Created by codecadet on 23/05/16.
  */
-public class PlayerBase extends AbstractObject {
+public class EnemyBase extends AbstractObject {
 
 
-    public PlayerBase(Representable representation, int xPos, int yPos) {
+    public EnemyBase(Representable representation, int xPos, int yPos) {
 
-        super(representation, GameObjectType.PLAYER_BASE, xPos, yPos);
+        super(representation, GameObjectType.ENEMY_BASE, xPos, yPos);
     }
 }

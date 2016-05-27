@@ -6,8 +6,8 @@ package org.academiadecodigo.towerdefense.object.representable;
 public interface Representable {
 
 
-    int getX();
+    int getXPos();
 
 
-    int getY();
+    int getYPos();
 }
