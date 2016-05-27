@@ -7,11 +7,13 @@ import org.academiadecodigo.towerdefense.object.representable.Representable;
  */
 public abstract class AbstractObject {
     private Representable representation;
+    private GameObjectType type;
 
 
-    public AbstractObject(Representable representation) {
+    public AbstractObject(Representable representation, GameObjectType type) {
 
         this.representation = representation;
+        this.type = type;
     }
 
 

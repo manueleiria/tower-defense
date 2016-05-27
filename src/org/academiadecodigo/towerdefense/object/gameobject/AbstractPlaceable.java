@@ -8,8 +8,8 @@ import org.academiadecodigo.towerdefense.object.representable.Representable;
 public abstract class AbstractPlaceable extends AbstractObject {
 
 
-    public AbstractPlaceable(Representable representation) {
+    public AbstractPlaceable(Representable representation, GameObjectType type) {
 
-        super(representation);
+        super(representation, type);
     }
 }

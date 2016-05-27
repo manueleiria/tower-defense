@@ -10,6 +10,6 @@ public class Projectile extends AbstractMovableObject {
 
     public Projectile(MovableRepresentable representation) {
 
-        super(representation);
+        super(representation, GameObjectType.PROJECTILE);
     }
 }

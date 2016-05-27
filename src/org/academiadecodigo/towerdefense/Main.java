@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] args) {
         RepresentableFactory factory = new SimpleGfxRepresentableFactory();
 
-        Game p = new Game(new ObjectFactory(factory));
+        Game p = new Game(new ObjectFactory(factory), Level.LEVEL1);
         p.start();
     }
 }

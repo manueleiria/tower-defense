@@ -1,6 +1,7 @@
 package org.academiadecodigo.towerdefense.object.gameobject.enemy;
 
 import org.academiadecodigo.towerdefense.object.gameobject.AbstractEnemy;
+import org.academiadecodigo.towerdefense.object.gameobject.GameObjectType;
 import org.academiadecodigo.towerdefense.object.representable.MovableRepresentable;
 
 /**
@@ -11,6 +12,6 @@ public class BaseEnemy extends AbstractEnemy {
 
     public BaseEnemy(MovableRepresentable representation) {
 
-        super(representation);
+        super(representation, GameObjectType.BASE_ENEMY);
     }
 }

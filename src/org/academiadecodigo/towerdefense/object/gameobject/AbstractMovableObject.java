@@ -8,9 +8,9 @@ import org.academiadecodigo.towerdefense.object.representable.MovableRepresentab
 public abstract class AbstractMovableObject extends AbstractObject {
 
 
-    public AbstractMovableObject(MovableRepresentable representation) {
+    public AbstractMovableObject(MovableRepresentable representation, GameObjectType type) {
 
-        super(representation);
+        super(representation, type);
     }
 
 

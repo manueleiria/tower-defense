@@ -1,6 +1,7 @@
 package org.academiadecodigo.towerdefense.object.gameobject.placeable;
 
 import org.academiadecodigo.towerdefense.object.gameobject.AbstractPlaceable;
+import org.academiadecodigo.towerdefense.object.gameobject.GameObjectType;
 import org.academiadecodigo.towerdefense.object.representable.Representable;
 
 /**
@@ -11,6 +12,6 @@ public class Tower extends AbstractPlaceable {
 
     public Tower(Representable representation) {
 
-        super(representation);
+        super(representation, GameObjectType.TOWER);
     }
 }

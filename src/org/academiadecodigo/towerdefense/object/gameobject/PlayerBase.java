@@ -10,6 +10,6 @@ public class PlayerBase extends AbstractObject {
 
     public PlayerBase(Representable representation) {
 
-        super(representation);
+        super(representation, GameObjectType.PLAYER_BASE);
     }
 }
