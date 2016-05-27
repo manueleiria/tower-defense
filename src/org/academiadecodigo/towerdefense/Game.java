@@ -21,22 +21,15 @@ public class Game {
         this.factory = factory;
         field = (Field) factory.createObject(GameObjectType.FIELD, 0, 0);
 
-        field.init(currentLevel);
+        field.init(factory, currentLevel);
     }
 
-
+    /**@throws InterruptedException*/
     public void start() throws InterruptedException {
         while (true) {
             Thread.sleep(DELAY);
 
 
         }
-
-<<<<<<< HEAD
-=======
-        Field field = (Field) factory.createObject(GameObjectType.FIELD, 0, 0);
-        field.init(factory, currentLevel);
-
->>>>>>> d6239cb370d682dd03a91f973dc0bdcc9d0e1ef3
     }
 }

@@ -7,8 +7,6 @@ import org.academiadecodigo.simplegraphics.graphics.Shape;
  * Created by codecadet on 23/05/16.
  */
 public class SimpleGfxRepresentation implements Representable {
-    private static final double MARGIN_LEFT = 10;
-    private static final double MARGIN_TOP = 10;
     private static final double CELL_SIZE = 32;
     private static final double MARGIN_LEFT = 10;
     private static final double MARGIN_TOP = 10;
@@ -28,14 +26,6 @@ public class SimpleGfxRepresentation implements Representable {
     public Shape getShape() {
 
         return shape;
-    }
-
-    public static double getMarginLeft() {
-        return MARGIN_LEFT;
-    }
-
-    public static double getMarginTop() {
-        return MARGIN_TOP;
     }
 
     @Override
