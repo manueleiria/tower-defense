@@ -1,6 +1,7 @@
 package org.academiadecodigo.towerdefense.object.gameobject;
 
 import org.academiadecodigo.towerdefense.Level;
+import org.academiadecodigo.towerdefense.LevelFlow;
 import org.academiadecodigo.towerdefense.object.representable.Representable;
 
 /**
@@ -20,7 +21,9 @@ public class Field extends AbstractObject {
 
 
     public void init(Level currentLevel) {
-
+        LevelFlow.createPlayerBase();
+        LevelFlow.createEnemyBase();
+        LevelFlow.drawPath(currentLevel);
     }
 
 
