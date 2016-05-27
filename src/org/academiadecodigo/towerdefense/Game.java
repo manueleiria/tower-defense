@@ -9,20 +9,28 @@ import org.academiadecodigo.towerdefense.object.gameobject.ObjectFactory;
  * Created by codecadet on 23/05/16.
  */
 public class Game {
+    private static final int DELAY = 20;
     private ObjectFactory factory;
     private Level currentLevel;
+    private Field field;
 
 
     public Game(ObjectFactory factory, Level currentLevel) {
 
         this.currentLevel = currentLevel;
         this.factory = factory;
+        field = (Field) factory.createObject(GameObjectType.FIELD, 0, 0);
+
+        field.init(currentLevel);
     }
 
 
-    public void start() {
+    public void start() throws InterruptedException {
+        while (true) {
+            Thread.sleep(DELAY);
 
-        Field field = (Field) factory.createObject(GameObjectType.FIELD, 0, 0);
-        field.init(currentLevel);
+
+        }
+
     }
 }
