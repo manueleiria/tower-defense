@@ -32,5 +32,11 @@ public class Game {
 
         }
 
+<<<<<<< HEAD
+=======
+        Field field = (Field) factory.createObject(GameObjectType.FIELD, 0, 0);
+        field.init(factory, currentLevel);
+
+>>>>>>> d6239cb370d682dd03a91f973dc0bdcc9d0e1ef3
     }
 }

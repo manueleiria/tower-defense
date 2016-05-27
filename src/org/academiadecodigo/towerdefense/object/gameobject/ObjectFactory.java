@@ -31,6 +31,10 @@ public class ObjectFactory {
                gameObject = new PlayerBase(factory.createRepresentableObject(type, xPos, yPos), xPos, yPos);
                break;
 
+           case ENEMY_BASE:
+               gameObject = new EnemyBase(factory.createRepresentableObject(type, xPos, yPos), xPos, yPos);
+               break;
+
            case PROJECTILE:
                gameObject = new Projectile((MovableRepresentable) factory.createRepresentableObject(type, xPos, yPos), xPos, yPos);
                break;
@@ -42,6 +46,7 @@ public class ObjectFactory {
            case BASE_ENEMY:
                gameObject = new BaseEnemy((MovableRepresentable) factory.createRepresentableObject(type, xPos, yPos), xPos, yPos);
                break;
+
        }
 
        return gameObject;

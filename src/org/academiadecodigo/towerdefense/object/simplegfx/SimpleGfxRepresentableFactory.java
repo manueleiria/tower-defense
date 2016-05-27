@@ -21,7 +21,11 @@ public class SimpleGfxRepresentableFactory implements RepresentableFactory {
                 break;
 
             case PLAYER_BASE:
-                representable = null;
+                representable = new SimpleGfxPlayerBase(type, xPos, yPos);
+                break;
+
+            case ENEMY_BASE:
+                representable = new SimpleGfxEnemyBase(type, xPos, yPos);
                 break;
 
             case PROJECTILE:
@@ -33,7 +37,7 @@ public class SimpleGfxRepresentableFactory implements RepresentableFactory {
                 break;
 
             case BASE_ENEMY:
-                representable = null;
+                representable = new SimpleGfxEnemy(type, xPos, yPos);
                 break;
         }
 
