@@ -13,15 +13,9 @@ public class LevelFlow {
     public void drawPath(int x, int y, int finalX, int finalY, Level current) {
 
         switch (current) {
-            case LEVEL_ONE:
+            case LEVEL1:
                 path = new Line(x, y, finalX, finalY);
                 path.draw();
-                break;
-            case LEVEL_TWO:
-                break;
-            case LEVEL_THREE:
-                break;
-            case LEVEL_FOUR:
                 break;
         }
 
