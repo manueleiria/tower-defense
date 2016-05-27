@@ -9,10 +9,14 @@ import org.academiadecodigo.simplegraphics.graphics.Shape;
 public class SimpleGfxRepresentation implements Representable {
     private static final double CELL_SIZE = 32;
     private Shape shape;
+    private int xPos;
+    private int yPos;
 
 
-    public SimpleGfxRepresentation(Shape shape) {
+    public SimpleGfxRepresentation(Shape shape, int xPos, int yPos) {
         this.shape = shape;
+        this.xPos = xPos * (int) CELL_SIZE;
+        this.yPos = yPos * (int) CELL_SIZE;
 
         shape.draw();
     }
@@ -23,15 +27,15 @@ public class SimpleGfxRepresentation implements Representable {
     }
 
     @Override
-    public int getX() {
+    public int getXPos() {
 
-        return 0;
+        return xPos;
     }
 
     @Override
-    public int getY() {
+    public int getYPos() {
 
-        return 0;
+        return yPos;
     }
 
     public static double getCellSize() {

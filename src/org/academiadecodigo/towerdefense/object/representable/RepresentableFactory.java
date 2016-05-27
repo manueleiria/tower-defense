@@ -8,5 +8,5 @@ import org.academiadecodigo.towerdefense.object.gameobject.GameObjectType;
 public interface RepresentableFactory {
 
 
-    Representable createRepresentableObject(GameObjectType type);
+    Representable createRepresentableObject(GameObjectType type, int xPos, int yPos);
 }

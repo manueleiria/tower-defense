@@ -29,11 +29,15 @@ public class PlayerBase extends AbstractObject implements MouseHandler{
 
 
 
-    public PlayerBase(Representable representation) {
+    public PlayerBase(Representable representation, int xPos, int yPos) {
 
+<<<<<<< HEAD
         super(representation, GameObjectType.PLAYER_BASE);
         mouse = new Mouse(this);
 
+=======
+        super(representation, GameObjectType.PLAYER_BASE, xPos, yPos);
+>>>>>>> master
     }
 
 

@@ -11,13 +11,13 @@ public class SimpleGfxRepresentableFactory implements RepresentableFactory {
 
 
     @Override
-    public Representable createRepresentableObject(GameObjectType type) {
+    public Representable createRepresentableObject(GameObjectType type, int xPos, int yPos) {
         Representable representable = null;
 
         switch (type) {
 
             case FIELD:
-                representable = new SimpleGfxField(type);
+                representable = new SimpleGfxField(type, xPos, yPos);
                 break;
 
             case PLAYER_BASE:
