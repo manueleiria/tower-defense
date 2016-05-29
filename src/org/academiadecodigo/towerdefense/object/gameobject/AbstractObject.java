@@ -1,6 +1,6 @@
 package org.academiadecodigo.towerdefense.object.gameobject;
 
-import org.academiadecodigo.towerdefense.object.representable.Representable;
+import org.academiadecodigo.towerdefense.object.interfaces.Representable;
 
 /**
  * Created by codecadet on 23/05/16.
@@ -18,6 +18,11 @@ public abstract class AbstractObject {
         this.type = type;
         this.xPos = xPos;
         this.yPos = yPos;
+    }
+
+    public void movePos(int dx, int dy) {
+        xPos += dx;
+        yPos += dy;
     }
 
     public int getxPos() {

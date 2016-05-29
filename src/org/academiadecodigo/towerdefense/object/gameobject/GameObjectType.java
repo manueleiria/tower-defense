@@ -5,11 +5,12 @@ package org.academiadecodigo.towerdefense.object.gameobject;
  */
 public enum GameObjectType {
     FIELD(35, 20),
+    TILE(1, 1),
     PLAYER_BASE(3, 3),
     ENEMY_BASE(3, 3),
     PROJECTILE(1, 1),
     TOWER(2, 2),
-    BASE_ENEMY(3, 3);
+    BASE_ENEMY(1, 1);
 
     private int cols;
     private int rows;

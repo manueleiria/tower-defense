@@ -2,8 +2,8 @@ package org.academiadecodigo.towerdefense.object.gameobject;
 
 import org.academiadecodigo.towerdefense.object.gameobject.placeable.*;
 import org.academiadecodigo.towerdefense.object.gameobject.enemy.*;
-import org.academiadecodigo.towerdefense.object.representable.MovableRepresentable;
-import org.academiadecodigo.towerdefense.object.representable.RepresentableFactory;
+import org.academiadecodigo.towerdefense.object.interfaces.MovableRepresentable;
+import org.academiadecodigo.towerdefense.object.interfaces.RepresentableFactory;
 
 /**
  * Created by codecadet on 23/05/16.
@@ -50,5 +50,10 @@ public class ObjectFactory {
        }
 
        return gameObject;
-   }
+    }
+
+    public AbstractObject createTile(int xPos, int yPos, TileType tileType) {
+
+        return  new Tile(factory.createRepresentableObject(GameObjectType.TILE, xPos, yPos), xPos, yPos, tileType);
+    }
 }

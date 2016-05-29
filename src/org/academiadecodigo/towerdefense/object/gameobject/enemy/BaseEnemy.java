@@ -2,7 +2,7 @@ package org.academiadecodigo.towerdefense.object.gameobject.enemy;
 
 import org.academiadecodigo.towerdefense.object.gameobject.AbstractEnemy;
 import org.academiadecodigo.towerdefense.object.gameobject.GameObjectType;
-import org.academiadecodigo.towerdefense.object.representable.MovableRepresentable;
+import org.academiadecodigo.towerdefense.object.interfaces.MovableRepresentable;
 
 /**
  * Created by codecadet on 23/05/16.

@@ -11,7 +11,7 @@ import org.academiadecodigo.towerdefense.object.gameobject.GameObjectType;
 public class SimpleGfxPlayerBase extends SimpleGfxRepresentation {
 
 
-    public SimpleGfxPlayerBase(GameObjectType type, int xPos, int yPos) {
+    public SimpleGfxPlayerBase(int xPos, int yPos) {
         super(new Picture(xPos*getCellSize() + getMarginLeft(), yPos*getCellSize() + getMarginTop(), "resources/PLAYER_BASE.png"), xPos, yPos);
 
     }

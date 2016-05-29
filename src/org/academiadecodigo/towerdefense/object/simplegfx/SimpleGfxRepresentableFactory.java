@@ -1,8 +1,9 @@
 package org.academiadecodigo.towerdefense.object.simplegfx;
 
 import org.academiadecodigo.towerdefense.object.gameobject.GameObjectType;
-import org.academiadecodigo.towerdefense.object.representable.Representable;
-import org.academiadecodigo.towerdefense.object.representable.RepresentableFactory;
+import org.academiadecodigo.towerdefense.object.gameobject.TileType;
+import org.academiadecodigo.towerdefense.object.interfaces.Representable;
+import org.academiadecodigo.towerdefense.object.interfaces.RepresentableFactory;
 
 /**
  * Created by codecadet on 23/05/16.
@@ -21,7 +22,7 @@ public class SimpleGfxRepresentableFactory implements RepresentableFactory {
                 break;
 
             case PLAYER_BASE:
-                representable = new SimpleGfxPlayerBase(type, xPos, yPos);
+                representable = new SimpleGfxPlayerBase(xPos, yPos);
                 break;
 
             case ENEMY_BASE:
@@ -42,5 +43,9 @@ public class SimpleGfxRepresentableFactory implements RepresentableFactory {
         }
 
         return representable;
+    }
+
+    public Representable createRepresentableTile(int xPos, int yPos, TileType tileType) {
+       return new SimpleGfxTile(xPos, yPos, tileType);
     }
 }

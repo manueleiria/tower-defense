@@ -1,4 +1,4 @@
-package org.academiadecodigo.towerdefense.object.representable;
+package org.academiadecodigo.towerdefense.object.interfaces;
 
 import org.academiadecodigo.towerdefense.object.gameobject.GameObjectType;
 

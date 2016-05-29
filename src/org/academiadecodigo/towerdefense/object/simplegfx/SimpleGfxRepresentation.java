@@ -1,6 +1,6 @@
 package org.academiadecodigo.towerdefense.object.simplegfx;
 
-import org.academiadecodigo.towerdefense.object.representable.Representable;
+import org.academiadecodigo.towerdefense.object.interfaces.Representable;
 import org.academiadecodigo.simplegraphics.graphics.Shape;
 
 /**

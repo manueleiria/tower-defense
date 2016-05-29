@@ -3,9 +3,7 @@ package org.academiadecodigo.towerdefense.object.simplegfx;
 
 import org.academiadecodigo.simplegraphics.graphics.Movable;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
-import org.academiadecodigo.simplegraphics.graphics.Shape;
 import org.academiadecodigo.towerdefense.object.gameobject.GameObjectType;
-import org.academiadecodigo.towerdefense.object.representable.MovableRepresentable;
 
 /**
  * Created by codecadet on 23/05/16.
