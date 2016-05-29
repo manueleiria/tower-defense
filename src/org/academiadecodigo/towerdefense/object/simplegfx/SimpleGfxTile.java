@@ -11,6 +11,5 @@ public class SimpleGfxTile extends SimpleGfxRepresentation {
 
     public SimpleGfxTile(int xPos, int yPos, TileType tileType) {
         super(new Picture(xPos*getCellSize() + getMarginLeft(), yPos*getCellSize() + getMarginTop(), "resources/" + tileType.getTexDir() + ".png"), xPos, yPos);
-
     }
 }

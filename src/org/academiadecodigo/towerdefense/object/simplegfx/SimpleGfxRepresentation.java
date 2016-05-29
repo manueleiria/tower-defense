@@ -24,7 +24,6 @@ public class SimpleGfxRepresentation implements Representable {
     }
 
     public Shape getShape() {
-
         return shape;
     }
 

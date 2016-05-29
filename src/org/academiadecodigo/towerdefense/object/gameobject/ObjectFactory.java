@@ -54,6 +54,6 @@ public class ObjectFactory {
 
     public AbstractObject createTile(int xPos, int yPos, TileType tileType) {
 
-        return  new Tile(factory.createRepresentableObject(GameObjectType.TILE, xPos, yPos), xPos, yPos, tileType);
+        return  new Tile(factory.createRepresentableTile(tileType, xPos, yPos), xPos, yPos, tileType);
     }
 }

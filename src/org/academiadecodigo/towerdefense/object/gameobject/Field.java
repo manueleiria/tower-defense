@@ -7,39 +7,40 @@ import org.academiadecodigo.towerdefense.object.interfaces.Representable;
  * Created by codecadet on 23/05/16.
  */
 public class Field extends AbstractObject {
-
-    private PlayerBase playerBase;
-    private EnemyBase enemyBase;
-    private boolean[][] tileMap;
+    private Tile[][] tileMap;
 
 
     public Field(Representable representation, int xPos, int yPos) {
+
         super(representation, GameObjectType.FIELD, xPos, yPos);
+
+        tileMap = new Tile[GameObjectType.FIELD.getCols()][GameObjectType.FIELD.getRows()];
 
     }
 
 
-    public void init() {
+    public void init(ObjectFactory factory, int[][] map) {
 
-        for (int i = 0; i < tileMap.length; i++) {
-            for (int j = 0; j < tileMap[i].length; j++) {
-                if (tileMap[i][j] == true) {
-                    Rectangle rec = new Rectangle(i*32+10, j*32+10, 32, 32);
-                    rec.draw();
+        for (int i = 0; i < map.length; i++) {
+            for (int j = 0; j < map[i].length; j++) {
+
+                switch (map[i][j]) {
+                    case 0:
+                        tileMap[j][i] = (Tile) factory.createTile(j, i, TileType.GRASS);
+                        break;
+
+                    case 1:
+                        tileMap[j][i] = (Tile) factory.createTile(j, i, TileType.ROAD);
+                        break;
                 }
             }
 
         }
     }
 
-    public void setTileMap(boolean[][] tileMap) {
-        this.tileMap = tileMap;
-    }
-
-    public boolean[][] getTileMap() {
+    public Tile[][] getTileMap() {
         return tileMap;
     }
-
 }
 
 

@@ -26,7 +26,7 @@ public class SimpleGfxRepresentableFactory implements RepresentableFactory {
                 break;
 
             case ENEMY_BASE:
-                representable = new SimpleGfxEnemyBase(type, xPos, yPos);
+                representable = new SimpleGfxEnemyBase(xPos, yPos);
                 break;
 
             case PROJECTILE:
@@ -45,7 +45,7 @@ public class SimpleGfxRepresentableFactory implements RepresentableFactory {
         return representable;
     }
 
-    public Representable createRepresentableTile(int xPos, int yPos, TileType tileType) {
+    public Representable createRepresentableTile(TileType tileType ,int xPos, int yPos) {
        return new SimpleGfxTile(xPos, yPos, tileType);
     }
 }

@@ -23,22 +23,27 @@ public class Game {
 
     }
 
+
     public void init() {
         LevelFlow.init();
 
         field = (Field) factory.createObject(GameObjectType.FIELD, 0, 0);
-        boolean[][] path = LevelFlow.drawPath(currentLevel);
-        field.setTileMap(path);
+        field.init(factory, LevelFlow.drawMap(currentLevel));
 
-        playerBase = (PlayerBase) factory.createObject(GameObjectType.PLAYER_BASE, LevelFlow.getPlayerBaseX(currentLevel), LevelFlow.getPlayerBaseY(currentLevel));
-        enemyBase = (EnemyBase) factory.createObject(GameObjectType.ENEMY_BASE, LevelFlow.getEnemyBaseX(currentLevel), LevelFlow.getEnemyBaseY(currentLevel));
+        playerBase = (PlayerBase) factory.createObject(
+                GameObjectType.PLAYER_BASE,
+                LevelFlow.getPlayerBaseX(currentLevel),
+                LevelFlow.getPlayerBaseY(currentLevel));
+
+        enemyBase = (EnemyBase) factory.createObject(
+                GameObjectType.ENEMY_BASE,
+                LevelFlow.getEnemyBaseX(currentLevel),
+                LevelFlow.getEnemyBaseY(currentLevel));
+
         enemies = new AbstractEnemy[LevelFlow.getEnemyAmount(currentLevel)];
-
-        field.init();
-
     }
 
-    /**@throws InterruptedException*/
+
     public void start() throws InterruptedException {
         Action currentAction;
         int animCounter = 0;
@@ -54,60 +59,74 @@ public class Game {
                 doMovement();
 
                 if (actionCounter < LevelFlow.getActionAmount(currentLevel)) {
-                    currentAction = LevelFlow.doNext(currentLevel, actionCounter);
+
+                    currentAction = LevelFlow.whatNext(currentLevel, actionCounter);
                     doAction(currentAction);
                 }
-                System.out.println(actionCounter);
 
-                actionCounter++;
                 animCounter = 0;
+                actionCounter++;
             }
 
             animateAll(animCounter);
         }
     }
 
-    private void animateAll(int animCounter) {
-        for (int i = 0; i < enemies.length; i++) {
-            if (enemies[i] != null) {
-                enemies[i].animate(animCounter);
-            }
-        }
-    }
-
-    private void doMovement() {
-        System.out.println(field.getTileMap()[6][10]);
-        for (int i = 0; i < enemies.length; i++) {
-            if (enemies[i] != null) {
-                System.out.println(field.getTileMap()[enemies[0].getxPos() - 1][enemies[0].getyPos()]);
-                System.out.println(enemies[0].getxPos() + " " + enemies[0].getyPos());
-                enemies[i].move();
-                enemies[i].verifyDirection(
-                        field.getTileMap()[enemies[i].getxPos()][enemies[i].getyPos() - 1],
-                        field.getTileMap()[enemies[i].getxPos()][enemies[i].getyPos() + 1],
-                        field.getTileMap()[enemies[i].getxPos() - 1][enemies[i].getyPos()],
-                        field.getTileMap()[enemies[i].getxPos() + 1][enemies[i].getyPos()]);
-            }
-        }
-    }
 
     private void doAction(Action currentAction) {
+
         switch (currentAction) {
+
             case DO_NOTHING:
                 break;
+
             case CREATE_ENEMY:
                 for (int i = 0; i < enemies.length; i++) {
+
                     if (enemies[i] == null) {
+
                         enemies[i] = (AbstractEnemy) factory.createObject(GameObjectType.BASE_ENEMY, LevelFlow.getEnemySpawnX(currentLevel), LevelFlow.getEnemySpawnY(currentLevel));
+
                         enemies[i].initialDirection(
-                                field.getTileMap()[enemies[i].getxPos()][enemies[i].getyPos() - 1],
-                                field.getTileMap()[enemies[i].getxPos()][enemies[i].getyPos() + 1],
-                                field.getTileMap()[enemies[i].getxPos() - 1][enemies[i].getyPos()],
-                                field.getTileMap()[enemies[i].getxPos() + 1][enemies[i].getyPos()]);
+                                field.getTileMap()[enemies[i].getxPos()][enemies[i].getyPos() - 1].getTileType().isWalkable(),
+                                field.getTileMap()[enemies[i].getxPos()][enemies[i].getyPos() + 1].getTileType().isWalkable(),
+                                field.getTileMap()[enemies[i].getxPos() - 1][enemies[i].getyPos()].getTileType().isWalkable(),
+                                field.getTileMap()[enemies[i].getxPos() + 1][enemies[i].getyPos()].getTileType().isWalkable());
+
                         return;
                     }
                 }
                 break;
+        }
+    }
+
+
+    private void doMovement() {
+
+        for (int i = 0; i < enemies.length; i++) {
+
+            if (enemies[i] != null) {
+
+                enemies[i].move();
+
+                enemies[i].verifyDirection(
+                        field.getTileMap()[enemies[i].getxPos()][enemies[i].getyPos() - 1].getTileType().isWalkable(),
+                        field.getTileMap()[enemies[i].getxPos()][enemies[i].getyPos() + 1].getTileType().isWalkable(),
+                        field.getTileMap()[enemies[i].getxPos() - 1][enemies[i].getyPos()].getTileType().isWalkable(),
+                        field.getTileMap()[enemies[i].getxPos() + 1][enemies[i].getyPos()].getTileType().isWalkable());
+            }
+        }
+    }
+
+
+    private void animateAll(int animCounter) {
+
+        for (int i = 0; i < enemies.length; i++) {
+
+            if (enemies[i] != null) {
+
+                enemies[i].animate(animCounter);
+            }
         }
     }
 }

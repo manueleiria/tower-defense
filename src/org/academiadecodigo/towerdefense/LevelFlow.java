@@ -1,10 +1,5 @@
 package org.academiadecodigo.towerdefense;
 
-import org.academiadecodigo.simplegraphics.graphics.Color;
-import org.academiadecodigo.simplegraphics.graphics.Line;
-import org.academiadecodigo.towerdefense.object.gameobject.*;
-
-
 /**
  * Created by <vi.KING_> Ralfe Elias on 27/05/16.
  */
@@ -25,16 +20,34 @@ public class LevelFlow {
     private static int[] enemySpawnY;
 
 
-    public static boolean[][] drawPath(Level currentLevel) {
-        boolean[][] path = new boolean[GameObjectType.FIELD.getCols()][GameObjectType.FIELD.getRows()];
-
+    public static int[][] drawMap(Level currentLevel) {
         switch (currentLevel) {
+
             case LEVEL1:
-                for (int i = 6; i < 29; i++) {
-                    path[i][9] = true;
-                }
+                return new int[][] {
+                        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                        {0,0,0,0,0,0,1,1,1,1,1,1,1,0,0,0,1,0,0,0,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0},
+                        {0,0,0,0,1,0,1,0,0,0,0,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0},
+                        {0,0,0,0,1,1,1,0,0,0,0,0,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,0,0,0},
+                        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                        {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
+                };
         }
-        return path;
+        return null;
     }
 
 
@@ -63,8 +76,40 @@ public class LevelFlow {
 
         enemyAmount[0] = 10;
 
-        enemySpawnX[0] = 29;
-        enemySpawnY[0] = 9;
+        enemySpawnX[0] = 30;
+        enemySpawnY[0] = 10;
+    }
+
+
+    public static Action whatNext(Level currentLevel, int actionCounter) {
+
+        switch (currentLevel) {
+            case LEVEL1:
+                return levelOneFlow(actionCounter);
+        }
+        return null;
+    }
+
+
+    private static Action levelOneFlow(int actionCounter) {
+
+        switch (actionCounter) {
+            case 0:
+                return Action.DO_NOTHING;
+            case 1:
+                return Action.DO_NOTHING;
+            case 2:
+                return Action.DO_NOTHING;
+            case 3:
+                return Action.DO_NOTHING;
+            case 4:
+                return Action.CREATE_ENEMY;
+            case 5:
+                return Action.DO_NOTHING;
+            case 6:
+                return Action.CREATE_ENEMY;
+        }
+        return null;
     }
 
 
@@ -99,37 +144,4 @@ public class LevelFlow {
     public static int getEnemySpawnY(Level currentLevel) {
         return enemySpawnY[currentLevel.getLevelId()];
     }
-
-
-    public static Action doNext(Level currentLevel, int actionCounter) {
-
-        switch (currentLevel) {
-            case LEVEL1:
-                return levelOneFlow(actionCounter);
-        }
-        return null;
-    }
-
-
-    private static Action levelOneFlow(int actionCounter) {
-
-        switch (actionCounter) {
-            case 0:
-                return Action.DO_NOTHING;
-            case 1:
-                return Action.DO_NOTHING;
-            case 2:
-                return Action.DO_NOTHING;
-            case 3:
-                return Action.DO_NOTHING;
-            case 4:
-                return Action.CREATE_ENEMY;
-            case 5:
-                return Action.DO_NOTHING;
-            case 6:
-                return Action.CREATE_ENEMY;
-        }
-        return null;
-    }
-
 }

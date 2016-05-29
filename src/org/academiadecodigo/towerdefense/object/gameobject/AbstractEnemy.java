@@ -11,27 +11,33 @@ public abstract class AbstractEnemy extends AbstractMovableObject {
 
     public AbstractEnemy(MovableRepresentable representation, GameObjectType type, int xPos, int yPos) {
         super(representation, type, xPos, yPos);
-        dir = Direction.STOPPED;
 
+        dir = Direction.STOPPED;
     }
 
 
     @Override
     public void animate(int animCounter) {
         super.animate(animCounter);
+
         switch (dir) {
+
             case NORTH:
                 moveRepresentable(0, -1);
                 break;
+
             case SOUTH:
                 moveRepresentable(0, 1);
                 break;
+
             case WEST:
                 moveRepresentable(-1, 0);
                 break;
+
             case EAST:
                 moveRepresentable(1, 0);
                 break;
+
             default:
                 break;
         }
@@ -40,18 +46,23 @@ public abstract class AbstractEnemy extends AbstractMovableObject {
 
     public void move() {
         switch (dir) {
+
             case NORTH:
                 super.move(0, -1);
                 break;
+
             case SOUTH:
                 super.move(0, 1);
                 break;
+
             case WEST:
                 super.move(-1, 0);
                 break;
+
             case EAST:
                 super.move(1, 0);
                 break;
+
             default:
                 break;
         }
@@ -68,18 +79,23 @@ public abstract class AbstractEnemy extends AbstractMovableObject {
 
     public void verifyDirection(boolean northCheck, boolean southCheck, boolean westCheck, boolean eastCheck) {
         switch (dir) {
+
             case NORTH:
                 changeDirection(northCheck, westCheck, eastCheck);
                 break;
+
             case SOUTH:
                 changeDirection(southCheck, eastCheck, westCheck);
                 break;
+
             case WEST:
                 changeDirection(westCheck, southCheck, northCheck);
                 break;
+
             case EAST:
                 changeDirection(eastCheck, northCheck, southCheck);
                 break;
+
             default:
                 break;
         }
