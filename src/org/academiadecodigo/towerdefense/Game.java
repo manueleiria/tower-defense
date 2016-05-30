@@ -85,7 +85,10 @@ public class Game {
 
                     if (enemies[i] == null) {
 
-                        enemies[i] = (AbstractEnemy) factory.createObject(GameObjectType.BASE_ENEMY, LevelFlow.getEnemySpawnX(currentLevel), LevelFlow.getEnemySpawnY(currentLevel));
+                        enemies[i] = (AbstractEnemy) factory.createObject(
+                                GameObjectType.BASE_ENEMY,
+                                LevelFlow.getEnemySpawnX(currentLevel),
+                                LevelFlow.getEnemySpawnY(currentLevel));
 
                         enemies[i].initialDirection(
                                 field.getTileMap()[enemies[i].getxPos()][enemies[i].getyPos() - 1].getTileType().isWalkable(),
