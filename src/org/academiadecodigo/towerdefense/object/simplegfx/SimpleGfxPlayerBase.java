@@ -14,7 +14,6 @@ public class SimpleGfxPlayerBase extends SimpleGfxRepresentation {
     private static final double MARGIN_TOP = 10;
 
 
-
     public SimpleGfxPlayerBase(GameObjectType type) {
         super(new Rectangle(MARGIN_LEFT, MARGIN_TOP, type.getCols() * getCellSize(), type.getRows() * getCellSize()));
     }
