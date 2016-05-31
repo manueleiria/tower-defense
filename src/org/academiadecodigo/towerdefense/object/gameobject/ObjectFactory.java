@@ -2,8 +2,8 @@ package org.academiadecodigo.towerdefense.object.gameobject;
 
 import org.academiadecodigo.towerdefense.object.gameobject.placeable.*;
 import org.academiadecodigo.towerdefense.object.gameobject.enemy.*;
-import org.academiadecodigo.towerdefense.object.representable.MovableRepresentable;
-import org.academiadecodigo.towerdefense.object.representable.RepresentableFactory;
+import org.academiadecodigo.towerdefense.object.interfaces.MovableRepresentable;
+import org.academiadecodigo.towerdefense.object.interfaces.RepresentableFactory;
 
 /**
  * Created by codecadet on 23/05/16.
@@ -31,6 +31,10 @@ public class ObjectFactory {
                gameObject = new PlayerBase(factory.createRepresentableObject(type, xPos, yPos), xPos, yPos);
                break;
 
+           case ENEMY_BASE:
+               gameObject = new EnemyBase(factory.createRepresentableObject(type, xPos, yPos), xPos, yPos);
+               break;
+
            case PROJECTILE:
                gameObject = new Projectile((MovableRepresentable) factory.createRepresentableObject(type, xPos, yPos), xPos, yPos);
                break;
@@ -42,8 +46,14 @@ public class ObjectFactory {
            case BASE_ENEMY:
                gameObject = new BaseEnemy((MovableRepresentable) factory.createRepresentableObject(type, xPos, yPos), xPos, yPos);
                break;
+
        }
 
        return gameObject;
-   }
+    }
+
+    public AbstractObject createTile(int xPos, int yPos, TileType tileType) {
+
+        return  new Tile(factory.createRepresentableTile(tileType, xPos, yPos), xPos, yPos, tileType);
+    }
 }

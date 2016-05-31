@@ -1,7 +1,7 @@
 package org.academiadecodigo.towerdefense;
 
 import org.academiadecodigo.towerdefense.object.gameobject.ObjectFactory;
-import org.academiadecodigo.towerdefense.object.representable.RepresentableFactory;
+import org.academiadecodigo.towerdefense.object.interfaces.RepresentableFactory;
 import org.academiadecodigo.towerdefense.object.simplegfx.SimpleGfxRepresentableFactory;
 
 /**
@@ -9,10 +9,10 @@ import org.academiadecodigo.towerdefense.object.simplegfx.SimpleGfxRepresentable
  */
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         RepresentableFactory factory = new SimpleGfxRepresentableFactory();
 
-        Game p = new Game(new ObjectFactory(factory), Level.LEVEL1);
-        p.start();
+        Game g = new Game(new ObjectFactory(factory), Level.LEVEL1);
+        g.start();
     }
 }

@@ -2,7 +2,7 @@ package org.academiadecodigo.towerdefense.object.gameobject.placeable;
 
 import org.academiadecodigo.towerdefense.object.gameobject.AbstractPlaceable;
 import org.academiadecodigo.towerdefense.object.gameobject.GameObjectType;
-import org.academiadecodigo.towerdefense.object.representable.Representable;
+import org.academiadecodigo.towerdefense.object.interfaces.Representable;
 
 /**
  * Created by codecadet on 23/05/16.
