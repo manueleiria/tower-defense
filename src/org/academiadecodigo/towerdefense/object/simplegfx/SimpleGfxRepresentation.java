@@ -1,6 +1,6 @@
 package org.academiadecodigo.towerdefense.object.simplegfx;
 
-import org.academiadecodigo.towerdefense.object.representable.Representable;
+import org.academiadecodigo.towerdefense.object.interfaces.Representable;
 import org.academiadecodigo.simplegraphics.graphics.Shape;
 
 /**
@@ -8,6 +8,9 @@ import org.academiadecodigo.simplegraphics.graphics.Shape;
  */
 public class SimpleGfxRepresentation implements Representable {
     private static final double CELL_SIZE = 32;
+    private static final double MARGIN_LEFT = 10;
+    private static final double MARGIN_TOP = 10;
+
     private Shape shape;
     private int xPos;
     private int yPos;
@@ -17,12 +20,10 @@ public class SimpleGfxRepresentation implements Representable {
         this.shape = shape;
         this.xPos = xPos * (int) CELL_SIZE;
         this.yPos = yPos * (int) CELL_SIZE;
-
         shape.draw();
     }
 
     public Shape getShape() {
-
         return shape;
     }
 
@@ -40,5 +41,13 @@ public class SimpleGfxRepresentation implements Representable {
 
     public static double getCellSize() {
         return CELL_SIZE;
+    }
+
+    public static double getMarginLeft() {
+        return MARGIN_LEFT;
+    }
+
+    public static double getMarginTop() {
+        return MARGIN_TOP;
     }
 }

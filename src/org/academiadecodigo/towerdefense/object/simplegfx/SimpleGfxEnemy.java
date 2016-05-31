@@ -2,8 +2,8 @@ package org.academiadecodigo.towerdefense.object.simplegfx;
 
 
 import org.academiadecodigo.simplegraphics.graphics.Movable;
-import org.academiadecodigo.simplegraphics.graphics.Shape;
-import org.academiadecodigo.towerdefense.object.representable.MovableRepresentable;
+import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.academiadecodigo.towerdefense.object.gameobject.GameObjectType;
 
 /**
  * Created by codecadet on 23/05/16.
@@ -11,8 +11,8 @@ import org.academiadecodigo.towerdefense.object.representable.MovableRepresentab
 public class SimpleGfxEnemy extends SimpleGfxMovableRepresentation {
 
 
-    public SimpleGfxEnemy(Shape shape, int xPos, int yPos) {
-        super(shape, xPos, yPos);
+    public SimpleGfxEnemy(GameObjectType type, int xPos, int yPos) {
+        super(new Rectangle(xPos*getCellSize() + getMarginLeft(), yPos*getCellSize() + getMarginTop(), type.getCols() * getCellSize(), type.getRows() * getCellSize()), xPos, yPos);
     }
 
 

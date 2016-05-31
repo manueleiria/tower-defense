@@ -1,6 +1,6 @@
 package org.academiadecodigo.towerdefense.object.gameobject;
 
-import org.academiadecodigo.towerdefense.object.representable.MovableRepresentable;
+import org.academiadecodigo.towerdefense.object.interfaces.MovableRepresentable;
 
 /**
  * Created by codecadet on 23/05/16.

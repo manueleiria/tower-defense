@@ -1,7 +1,7 @@
 package org.academiadecodigo.towerdefense.object.simplegfx;
 
 
-import org.academiadecodigo.towerdefense.object.representable.MovableRepresentable;
+import org.academiadecodigo.towerdefense.object.interfaces.MovableRepresentable;
 import org.academiadecodigo.simplegraphics.graphics.Movable;
 import org.academiadecodigo.simplegraphics.graphics.Shape;
 
@@ -15,6 +15,9 @@ public class SimpleGfxMovableRepresentation extends SimpleGfxRepresentation impl
         super(shape, xPos, yPos);
     }
 
+    public void animate(int animCounter) {
+
+    }
 
     public void move(int dy) {
 
