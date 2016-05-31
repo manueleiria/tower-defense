@@ -31,6 +31,8 @@ public abstract class AbstractObject implements MouseHandler {
 
     }
 
+
+
     public void movePos(int dx, int dy) {
         xPos += dx;
         yPos += dy;

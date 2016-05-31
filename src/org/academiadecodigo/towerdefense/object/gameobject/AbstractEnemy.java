@@ -1,17 +1,22 @@
 package org.academiadecodigo.towerdefense.object.gameobject;
 
+import org.academiadecodigo.simplegraphics.mouse.MouseEvent;
 import org.academiadecodigo.towerdefense.object.interfaces.MovableRepresentable;
+import org.academiadecodigo.towerdefense.object.interfaces.Shootable;
+import org.academiadecodigo.towerdefense.object.simplegfx.SimpleGfxRepresentation;
 
 /**
  * Created by codecadet on 23/05/16.
  */
-public abstract class AbstractEnemy extends AbstractMovableObject {
+public abstract class AbstractEnemy extends AbstractMovableObject implements Shootable {
     private Direction dir;
+    private int hitPoints;
+    private boolean isAlive = true;
 
 
-    public AbstractEnemy(MovableRepresentable representation, GameObjectType type, int xPos, int yPos) {
+    public AbstractEnemy(MovableRepresentable representation, GameObjectType type, int xPos, int yPos, int hp) {
         super(representation, type, xPos, yPos);
-
+        this.hitPoints = hp;
         dir = Direction.STOPPED;
     }
 
@@ -171,5 +176,50 @@ public abstract class AbstractEnemy extends AbstractMovableObject {
         }
 
         dir = Direction.STOPPED;
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent mouseEvent) {
+
+        if ((mouseEvent.getX() > this.getxPos() && mouseEvent.getX() < this.getxPos() + SimpleGfxRepresentation.getCellSize()) && ((mouseEvent.getY()+23) < this.getyPos() + SimpleGfxRepresentation.getCellSize() && (mouseEvent.getY()+23) > this.getyPos())) {
+
+            if (!isAlive) {
+                System.out.println("Enemy is already dead!");
+            } else {
+                loseHP();
+            }
+        }
+    }
+
+
+
+    @Override
+    public int getHP() {
+        return hitPoints;
+    }
+
+    @Override
+    public void loseHP() {
+        hitPoints -= 10;
+        if (hitPoints <= 0) {
+            setDead();
+            dir = Direction.STOPPED;
+            //set representation red rectangle
+        }
+    }
+
+    @Override
+    public boolean isAlive() {
+        return this.isAlive;
+    }
+
+    @Override
+    public boolean setDead() {
+        return isAlive = false;
+    }
+
+    @Override
+    public void setHP(int hp) {
+        this.hitPoints = hp;
     }
 }
