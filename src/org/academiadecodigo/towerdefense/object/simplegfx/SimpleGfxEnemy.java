@@ -11,8 +11,10 @@ import org.academiadecodigo.towerdefense.object.gameobject.GameObjectType;
 public class SimpleGfxEnemy extends SimpleGfxMovableRepresentation {
 
 
+
     public SimpleGfxEnemy(GameObjectType type, int xPos, int yPos) {
         super(new Rectangle(xPos*getCellSize() + getMarginLeft(), yPos*getCellSize() + getMarginTop(), type.getCols() * getCellSize(), type.getRows() * getCellSize()), xPos, yPos);
+
     }
 
 
@@ -32,4 +34,5 @@ public class SimpleGfxEnemy extends SimpleGfxMovableRepresentation {
             ((Movable) getShape()).translate(dx, dy);
         }
     }
+
 }

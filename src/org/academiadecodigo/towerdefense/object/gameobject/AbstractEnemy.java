@@ -3,6 +3,7 @@ package org.academiadecodigo.towerdefense.object.gameobject;
 import org.academiadecodigo.simplegraphics.mouse.MouseEvent;
 import org.academiadecodigo.towerdefense.object.interfaces.MovableRepresentable;
 import org.academiadecodigo.towerdefense.object.interfaces.Shootable;
+import org.academiadecodigo.towerdefense.object.simplegfx.SimpleGfxEnemy;
 import org.academiadecodigo.towerdefense.object.simplegfx.SimpleGfxRepresentation;
 
 /**
@@ -181,8 +182,12 @@ public abstract class AbstractEnemy extends AbstractMovableObject implements Sho
     @Override
     public void mouseClicked(MouseEvent mouseEvent) {
 
-        if ((mouseEvent.getX() > this.getxPos() && mouseEvent.getX() < this.getxPos() + SimpleGfxRepresentation.getCellSize()) && ((mouseEvent.getY()+23) < this.getyPos() + SimpleGfxRepresentation.getCellSize() && (mouseEvent.getY()+23) > this.getyPos())) {
+        System.out.println("Mouse -> Y: " + (mouseEvent.getY()-25) + " x: " + mouseEvent.getX());
+        System.out.println("Repr -> Y " + getRepresentation().getYPos() + " X: " + getRepresentation().getXPos());
 
+        if ((mouseEvent.getX() > this.getRepresentation().getXPos() && mouseEvent.getX() < this.getRepresentation().getXPos() + SimpleGfxRepresentation.getCellSize()) &&
+                ((mouseEvent.getY() - 25) < this.getRepresentation().getYPos() + SimpleGfxRepresentation.getCellSize() && (mouseEvent.getY() - 25) > this.getRepresentation().getYPos())) {
+            //isAlive = false;
             if (!isAlive) {
                 System.out.println("Enemy is already dead!");
             } else {
