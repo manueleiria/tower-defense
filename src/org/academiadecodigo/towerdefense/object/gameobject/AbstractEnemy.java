@@ -55,18 +55,25 @@ public abstract class AbstractEnemy extends AbstractMovableObject implements Sho
 
             case NORTH:
                 super.move(0, -1);
+                System.out.println(dir);
                 break;
 
             case SOUTH:
                 super.move(0, 1);
+                System.out.println(dir);
+
                 break;
 
             case WEST:
                 super.move(-1, 0);
+                System.out.println(dir);
+
                 break;
 
             case EAST:
                 super.move(1, 0);
+                System.out.println(dir);
+
                 break;
 
             default:
@@ -75,11 +82,13 @@ public abstract class AbstractEnemy extends AbstractMovableObject implements Sho
     }
 
 
+
+
     public void initialDirection(boolean northCheck, boolean southCheck, boolean westCheck, boolean eastCheck) {
-        if (northCheck) dir = Direction.NORTH;
-        if (southCheck) dir = Direction.SOUTH;
-        if (westCheck) dir = Direction.WEST;
-        if (eastCheck) dir = Direction.EAST;
+        if (northCheck) ((MovableRepresentable)getRepresentation()).changeAnim(dir = Direction.NORTH);
+        if (southCheck) ((MovableRepresentable)getRepresentation()).changeAnim(dir = Direction.SOUTH);
+        if (westCheck) ((MovableRepresentable)getRepresentation()).changeAnim(dir = Direction.WEST);
+        if (eastCheck) ((MovableRepresentable)getRepresentation()).changeAnim(dir = Direction.EAST);
     }
 
 
@@ -118,11 +127,13 @@ public abstract class AbstractEnemy extends AbstractMovableObject implements Sho
 
                 if (isLeftPath) {
                     dir = Direction.WEST;
+                    ((MovableRepresentable)getRepresentation()).changeAnim(dir);
                     return;
                 }
 
                 if (isRightPath) {
                     dir = Direction.EAST;
+                    ((MovableRepresentable)getRepresentation()).changeAnim(dir);
                     return;
                 }
                 break;
@@ -134,11 +145,13 @@ public abstract class AbstractEnemy extends AbstractMovableObject implements Sho
 
                 if (isLeftPath) {
                     dir = Direction.EAST;
+                    ((MovableRepresentable)getRepresentation()).changeAnim(dir);
                     return;
                 }
 
                 if (isRightPath) {
                     dir = Direction.WEST;
+                    ((MovableRepresentable)getRepresentation()).changeAnim(dir);
                     return;
                 }
                 break;
@@ -150,11 +163,13 @@ public abstract class AbstractEnemy extends AbstractMovableObject implements Sho
 
                 if (isLeftPath) {
                     dir = Direction.NORTH;
+                    ((MovableRepresentable)getRepresentation()).changeAnim(dir);
                     return;
                 }
 
                 if (isRightPath) {
                     dir = Direction.SOUTH;
+                    ((MovableRepresentable)getRepresentation()).changeAnim(dir);
                     return;
                 }
                 break;
@@ -166,17 +181,20 @@ public abstract class AbstractEnemy extends AbstractMovableObject implements Sho
 
                 if (isLeftPath) {
                     dir = Direction.SOUTH;
+                    ((MovableRepresentable)getRepresentation()).changeAnim(dir);
                     return;
                 }
 
                 if (isRightPath) {
                     dir = Direction.NORTH;
+                    ((MovableRepresentable)getRepresentation()).changeAnim(dir);
                     return;
                 }
                 break;
         }
 
         dir = Direction.STOPPED;
+        ((MovableRepresentable)getRepresentation()).changeAnim(dir);
     }
 
     @Override
@@ -209,6 +227,7 @@ public abstract class AbstractEnemy extends AbstractMovableObject implements Sho
         if (hitPoints <= 0) {
             setDead();
             dir = Direction.STOPPED;
+            ((MovableRepresentable)getRepresentation()).changeAnim(dir);
             //set representation red rectangle
         }
     }
@@ -226,5 +245,9 @@ public abstract class AbstractEnemy extends AbstractMovableObject implements Sho
     @Override
     public void setHP(int hp) {
         this.hitPoints = hp;
+    }
+
+    public Direction getDir() {
+        return dir;
     }
 }

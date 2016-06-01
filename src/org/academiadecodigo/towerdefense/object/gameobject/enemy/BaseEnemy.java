@@ -14,4 +14,10 @@ public class BaseEnemy extends AbstractEnemy {
 
         super(representation, GameObjectType.BASE_ENEMY, xPos, yPos, hp);
     }
+
+    public void updatepic() {
+        super.getDir();
+    }
+
+
 }
