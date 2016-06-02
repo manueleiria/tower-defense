@@ -7,7 +7,12 @@ public interface Shootable {
 
     public int getHP();
 
-    public int loseHP();
+    public void loseHP();
 
     public boolean isAlive();
+
+    public boolean setDead();
+
+    public void setHP(int hp);
+
 }

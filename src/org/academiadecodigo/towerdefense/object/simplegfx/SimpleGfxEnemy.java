@@ -3,6 +3,9 @@ package org.academiadecodigo.towerdefense.object.simplegfx;
 
 import org.academiadecodigo.simplegraphics.graphics.Movable;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
+import org.academiadecodigo.simplegraphics.pictures.Picture;
+import org.academiadecodigo.towerdefense.object.gameobject.AbstractEnemy;
+import org.academiadecodigo.towerdefense.object.gameobject.Direction;
 import org.academiadecodigo.towerdefense.object.gameobject.GameObjectType;
 
 /**
@@ -12,9 +15,41 @@ public class SimpleGfxEnemy extends SimpleGfxMovableRepresentation {
 
 
     public SimpleGfxEnemy(GameObjectType type, int xPos, int yPos) {
-        super(new Rectangle(xPos*getCellSize() + getMarginLeft(), yPos*getCellSize() + getMarginTop(), type.getCols() * getCellSize(), type.getRows() * getCellSize()), xPos, yPos);
+        super(new Picture(xPos*getCellSize() + getMarginLeft(), yPos*getCellSize() + getMarginTop(), "resources/enemies/base_enemy/enemyDown.png"), xPos, yPos);
+
     }
 
+    @Override
+    public void changeAnim(Direction dir) {
+        super.changeAnim(dir);
+        switch (this.getDir()) {
+            case NORTH:
+                ((Picture) getShape()).load("resources/enemies/base_enemy/enemyUp.png");
+                System.out.println(dir);
+                break;
+
+            case EAST:
+                ((Picture) getShape()).load("resources/enemies/base_enemy/enemyRight.png");
+                System.out.println(dir);
+                break;
+
+            case WEST:
+                ((Picture) getShape()).load("resources/enemies/base_enemy/enemyLeft.png");
+                System.out.println(dir);
+                break;
+
+            case SOUTH:
+                ((Picture) getShape()).load("resources/enemies/base_enemy/enemyDown.png");
+                //System.out.println(dir);
+                break;
+
+            case STOPPED:
+                ((Picture) getShape()).load("resources/enemies/base_enemy/enemyDead.png");
+                System.out.println(dir);
+                break;
+
+        }
+    }
 
     public void move(int dy) {
 
@@ -30,6 +65,8 @@ public class SimpleGfxEnemy extends SimpleGfxMovableRepresentation {
         if (getShape() instanceof Movable) {
 
             ((Movable) getShape()).translate(dx, dy);
+
         }
     }
+
 }

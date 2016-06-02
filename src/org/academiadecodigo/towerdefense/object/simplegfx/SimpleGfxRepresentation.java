@@ -30,13 +30,13 @@ public class SimpleGfxRepresentation implements Representable {
     @Override
     public int getXPos() {
 
-        return xPos;
+        return shape.getX();
     }
 
     @Override
     public int getYPos() {
 
-        return yPos;
+        return shape.getY();
     }
 
     public static double getCellSize() {
