@@ -24,7 +24,7 @@ public class SimpleGfxEnemy extends SimpleGfxMovableRepresentation {
         super.changeAnim(dir);
         switch (this.getDir()) {
             case NORTH:
-                //((Picture) getShape()).load("resources/enemies/base_enemy/enemyUp.png");
+                ((Picture) getShape()).load("resources/enemies/base_enemy/enemyUp.png");
                 System.out.println(dir);
                 break;
 
