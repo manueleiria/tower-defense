@@ -9,7 +9,8 @@ public enum GameObjectType {
     ENEMY_BASE(3, 3),
     PROJECTILE(1, 1),
     TOWER(2, 4),
-    BASE_ENEMY(1, 1);
+    BASE_ENEMY(1, 1),
+    MENU(3,2);
 
     private int cols;
     private int rows;

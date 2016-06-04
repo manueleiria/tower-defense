@@ -1,6 +1,8 @@
 package org.academiadecodigo.towerdefense.object.gameobject;
 
+import org.academiadecodigo.simplegraphics.mouse.Mouse;
 import org.academiadecodigo.simplegraphics.mouse.MouseEvent;
+import org.academiadecodigo.simplegraphics.mouse.MouseHandler;
 import org.academiadecodigo.towerdefense.object.interfaces.MovableRepresentable;
 import org.academiadecodigo.towerdefense.object.interfaces.Shootable;
 import org.academiadecodigo.towerdefense.object.simplegfx.SimpleGfxEnemy;
@@ -9,16 +11,18 @@ import org.academiadecodigo.towerdefense.object.simplegfx.SimpleGfxRepresentatio
 /**
  * Created by codecadet on 23/05/16.
  */
-public abstract class AbstractEnemy extends AbstractMovableObject implements Shootable {
+public abstract class AbstractEnemy extends AbstractMovableObject implements Shootable, MouseHandler {
     private Direction dir;
     private int hitPoints;
     private boolean isAlive = true;
+    private Mouse mouse;
 
 
     public AbstractEnemy(MovableRepresentable representation, GameObjectType type, int xPos, int yPos, int hp) {
         super(representation, type, xPos, yPos);
         this.hitPoints = hp;
         dir = Direction.STOPPED;
+        mouse = new Mouse(this);
     }
 
 

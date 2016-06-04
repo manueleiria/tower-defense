@@ -40,6 +40,8 @@ public class SimpleGfxRepresentableFactory implements RepresentableFactory {
             case BASE_ENEMY:
                 representable = new SimpleGfxEnemy(type, xPos, yPos);
                 break;
+            case MENU:
+                representable = new SimpleGfxMenu(xPos, yPos);
         }
 
         return representable;

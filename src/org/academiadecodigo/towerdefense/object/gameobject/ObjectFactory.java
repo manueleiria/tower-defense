@@ -46,6 +46,8 @@ public class ObjectFactory {
            case BASE_ENEMY:
                gameObject = new BaseEnemy((MovableRepresentable) factory.createRepresentableObject(type, xPos, yPos), xPos, yPos, 10);
                break;
+           case MENU:
+               gameObject = new Menu(factory.createRepresentableObject(type, xPos, yPos), xPos, yPos);
 
        }
 
