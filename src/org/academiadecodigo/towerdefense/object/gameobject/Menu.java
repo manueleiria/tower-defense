@@ -13,6 +13,9 @@ import org.academiadecodigo.towerdefense.object.simplegfx.SimpleGfxRepresentatio
 public class Menu extends AbstractObject implements MouseHandler {
 
     private Mouse mouse;
+    private Button buttonLevel1;
+    private Button buttonLevel2;
+
     private int button1X = 550;
     private int button1Y = 240;
     private int button2X = 550;
@@ -22,22 +25,27 @@ public class Menu extends AbstractObject implements MouseHandler {
     private boolean isPlay = false;
     private int levelPlay;
     private Level level;
-
-    private Representable buttonLevel1;
-    private Representable buttonLevel2;
+    private ObjectFactory factory;
 
 
-    public Menu(Representable representation, int xPos, int yPos) {
+
+    public Menu(Representable representation, int xPos, int yPos, ObjectFactory factory) {
 
         super(representation, GameObjectType.MENU, xPos, yPos);
+        this.factory = factory;
 
     }
 
     public void init() {
+        buttonLevel1 = (Button)factory.createButton(button1X, button1Y, "resources/menu/buttonLevel1.png");
+        buttonLevel2 = (Button)factory.createButton(button2X, button2Y, "resources/menu/buttonLevel2.png");
 
     }
 
     public void clear() {
+        getRepresentation().clear();
+        buttonLevel1.getRepresentation().clear();
+        buttonLevel2.getRepresentation().clear();
 
     }
 
@@ -86,4 +94,5 @@ public class Menu extends AbstractObject implements MouseHandler {
         }
         return null;
     }
+
 }

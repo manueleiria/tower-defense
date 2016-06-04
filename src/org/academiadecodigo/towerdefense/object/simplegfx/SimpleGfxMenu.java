@@ -1,15 +1,15 @@
 package org.academiadecodigo.towerdefense.object.simplegfx;
 
-import org.academiadecodigo.simplegraphics.graphics.Shape;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
+
 
 /**
  * Created by codecadet on 04/06/16.
  */
 public class SimpleGfxMenu extends SimpleGfxRepresentation {
 
-    private Picture buttonLevel1;
-    private Picture buttonLevel2;
+    private SimpleGfxButton buttonLevel1;
+    private SimpleGfxButton buttonLevel2;
     private int button1X = 550;
     private int button1Y = 240;
     private int button2X = 550;
@@ -25,17 +25,8 @@ public class SimpleGfxMenu extends SimpleGfxRepresentation {
     public void init() {
 
         super.getShape().draw();
-        buttonLevel1 = new Picture(button1X, button1Y, "resources/menu/buttonLevel1.png");
-        buttonLevel2 = new Picture(button2X, button2Y, "resources/menu/buttonLevel2.png");
-        buttonLevel1.draw();
-        buttonLevel2.draw();
+        buttonLevel1 = new SimpleGfxButton(button1X, button1Y, "resources/menu/buttonLevel1.png");
+        buttonLevel2 = new SimpleGfxButton(button2X, button2Y, "resources/menu/buttonLevel2.png");
     }
 
-    public void clear() {
-
-        super.getShape().delete();
-        buttonLevel1.delete();
-        buttonLevel2.delete();
-
-    }
 }

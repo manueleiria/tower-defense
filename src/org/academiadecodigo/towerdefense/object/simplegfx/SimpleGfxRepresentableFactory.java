@@ -40,8 +40,11 @@ public class SimpleGfxRepresentableFactory implements RepresentableFactory {
             case BASE_ENEMY:
                 representable = new SimpleGfxEnemy(type, xPos, yPos);
                 break;
+
             case MENU:
                 representable = new SimpleGfxMenu(xPos, yPos);
+                break;
+
         }
 
         return representable;
@@ -49,5 +52,9 @@ public class SimpleGfxRepresentableFactory implements RepresentableFactory {
 
     public Representable createRepresentableTile(TileType tileType ,int xPos, int yPos) {
        return new SimpleGfxTile(xPos, yPos, tileType);
+    }
+
+    public Representable createRepresentableButton(int xPos, int yPos, String path) {
+        return new SimpleGfxButton(xPos, yPos, path);
     }
 }

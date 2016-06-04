@@ -46,9 +46,10 @@ public class ObjectFactory {
            case BASE_ENEMY:
                gameObject = new BaseEnemy((MovableRepresentable) factory.createRepresentableObject(type, xPos, yPos), xPos, yPos, 10);
                break;
-           case MENU:
-               gameObject = new Menu(factory.createRepresentableObject(type, xPos, yPos), xPos, yPos);
 
+           case BUTTON:
+                gameObject = new Button(factory.createRepresentableObject(type, xPos, yPos), xPos, yPos);
+                break;
        }
 
        return gameObject;
@@ -57,5 +58,10 @@ public class ObjectFactory {
     public AbstractObject createTile(int xPos, int yPos, TileType tileType) {
 
         return  new Tile(factory.createRepresentableTile(tileType, xPos, yPos), xPos, yPos, tileType);
+    }
+
+    public AbstractObject createButton(int xPos, int yPos, String path) {
+
+        return  new Button(factory.createRepresentableButton(xPos, yPos, path), xPos, yPos);
     }
 }

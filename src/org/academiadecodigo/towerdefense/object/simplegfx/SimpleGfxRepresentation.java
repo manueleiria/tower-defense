@@ -50,4 +50,9 @@ public class SimpleGfxRepresentation implements Representable {
     public static double getMarginTop() {
         return MARGIN_TOP;
     }
+
+    @Override
+    public void clear() {
+        shape.delete();
+    }
 }

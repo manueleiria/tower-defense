@@ -14,9 +14,10 @@ import org.academiadecodigo.towerdefense.object.simplegfx.SimpleGfxRepresentable
 public class Main {
 
     public static void main(String[] args) throws InterruptedException {
+
         RepresentableFactory factory = new SimpleGfxRepresentableFactory();
 
-        Menu menu = ((Menu) factory.createRepresentableObject(GameObjectType.MENU, 10, 10));
+        Menu menu = new Menu(new SimpleGfxMenu(10, 10), 10, 10, new ObjectFactory(factory));
 
         menu.init();
 
