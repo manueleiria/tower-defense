@@ -32,6 +32,9 @@ public class Field extends AbstractObject {
                     case 1:
                         tileMap[j][i] = (Tile) factory.createTile(j, i, TileType.ROAD);
                         break;
+
+                    case 2:
+                        tileMap[j][i] = (Tile) factory.createTile(j, i, TileType.TREE);
                 }
             }
         }

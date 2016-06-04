@@ -12,7 +12,7 @@ public class Main {
     public static void main(String[] args) throws InterruptedException {
         RepresentableFactory factory = new SimpleGfxRepresentableFactory();
 
-        Game g = new Game(new ObjectFactory(factory), Level.LEVEL1);
+        Game g = new Game(new ObjectFactory(factory), Level.LEVEL3);
         g.start();
     }
 }
