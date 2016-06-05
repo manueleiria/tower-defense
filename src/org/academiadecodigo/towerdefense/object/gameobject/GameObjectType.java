@@ -11,7 +11,8 @@ public enum GameObjectType {
     TOWER(2, 4),
     BASE_ENEMY(1, 1),
     MENU(3,2),
-    BUTTON(2, 1);
+    BUTTON(2, 1),
+    SCOREBOARD(3, 2);
 
     private int cols;
     private int rows;

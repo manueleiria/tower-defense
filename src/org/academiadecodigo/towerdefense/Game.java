@@ -1,6 +1,7 @@
 package org.academiadecodigo.towerdefense;
 
 import org.academiadecodigo.towerdefense.object.gameobject.*;
+import org.academiadecodigo.towerdefense.object.simplegfx.SimpleGfxScoreBoard;
 
 /**
  * Created by codecadet on 23/05/16.
@@ -11,6 +12,7 @@ public class Game {
     private ObjectFactory factory;
     private Level currentLevel;
     private Field field;
+    private ScoreBoard scoreBoard;
     private PlayerBase playerBase;
     private EnemyBase enemyBase;
     private AbstractEnemy[] enemies;
@@ -40,6 +42,10 @@ public class Game {
                 GameObjectType.ENEMY_BASE,
                 LevelFlow.getEnemyBaseX(currentLevel),
                 LevelFlow.getEnemyBaseY(currentLevel));
+
+        //scoreBoard = (ScoreBoard) factory.createObject(GameObjectType.SCOREBOARD, 1020, 580);
+        SimpleGfxScoreBoard scoreBoard = new SimpleGfxScoreBoard(1020, 580);
+        scoreBoard.currentScore(currentLevel);
 
         enemies = new AbstractEnemy[LevelFlow.getEnemyAmount(currentLevel)];
     }

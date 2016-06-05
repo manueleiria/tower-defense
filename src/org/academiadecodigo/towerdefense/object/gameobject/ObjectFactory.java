@@ -44,12 +44,16 @@ public class ObjectFactory {
                break;
 
            case BASE_ENEMY:
-               gameObject = new BaseEnemy((MovableRepresentable) factory.createRepresentableObject(type, xPos, yPos), xPos, yPos, 10);
+               gameObject = new BaseEnemy((MovableRepresentable) factory.createRepresentableObject(type, xPos, yPos), xPos, yPos);
                break;
 
            case BUTTON:
                 gameObject = new Button(factory.createRepresentableObject(type, xPos, yPos), xPos, yPos);
                 break;
+
+           case SCOREBOARD:
+               gameObject = new ScoreBoard(factory.createRepresentableObject(type, xPos, yPos), xPos, yPos);
+               break;
        }
 
        return gameObject;

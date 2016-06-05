@@ -16,6 +16,7 @@ public class Menu extends AbstractObject implements MouseHandler {
     private Button buttonLevel1;
     private Button buttonLevel2;
     private Button buttonLevel3;
+    private Button buttonExit;
 
     private int button1X = 550;
     private int button1Y = 240;
@@ -23,6 +24,8 @@ public class Menu extends AbstractObject implements MouseHandler {
     private int button2Y = 275;
     private int button3X = 550;
     private int button3Y = 310;
+    private int buttonExitX = 550;
+    private int buttonExitY = 365;
     private int buttonSizeX = 80;
     private int buttonSizeY = 35;
     private boolean isPlay = false;
@@ -44,7 +47,8 @@ public class Menu extends AbstractObject implements MouseHandler {
         mouse = new Mouse(this);
         buttonLevel1 = (Button)factory.createButton(button1X, button1Y, "resources/menu/buttonLevel1.png");
         buttonLevel2 = (Button)factory.createButton(button2X, button2Y, "resources/menu/buttonLevel2.png");
-        buttonLevel3 = (Button) factory.createButton(button3X, button3Y, "resources/menu/buttonLevel3.png");
+        buttonLevel3 = (Button)factory.createButton(button3X, button3Y, "resources/menu/buttonLevel3.png");
+        buttonExit = (Button)factory.createButton(buttonExitX, buttonExitY, "resources/menu/buttonExit.png");
 
     }
 
@@ -53,6 +57,8 @@ public class Menu extends AbstractObject implements MouseHandler {
         buttonLevel1.getRepresentation().clear();
         buttonLevel2.getRepresentation().clear();
         buttonLevel3.getRepresentation().clear();
+        buttonExit.getRepresentation().clear();
+
 
     }
 
@@ -86,6 +92,22 @@ public class Menu extends AbstractObject implements MouseHandler {
                 levelPlay = 2;
                 level = levelChosen(levelPlay);
             }
+
+            if ((mouseEvent.getX() > button3X && mouseEvent.getX() < button3X + buttonSizeX) &&
+                    ((mouseEvent.getY() - 25) < button3Y + buttonSizeY && (mouseEvent.getY() - 25) > button3Y)) {
+
+                isPlay = true;
+                levelPlay = 2;
+                level = levelChosen(levelPlay);
+            }
+
+            if ((mouseEvent.getX() > buttonExitX && mouseEvent.getX() < buttonExitX + buttonSizeX) &&
+                    ((mouseEvent.getY() - 25) < buttonExitY + buttonSizeY && (mouseEvent.getY() - 25) > buttonExitY)) {
+
+                System.exit(0);
+
+            }
+
         }
     }
 

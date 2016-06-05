@@ -14,4 +14,5 @@ public interface RepresentableFactory {
     Representable createRepresentableTile(TileType type, int xPos, int yPos);
 
     Representable createRepresentableButton(int xPos, int yPos, String path);
+
 }

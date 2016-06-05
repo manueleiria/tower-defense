@@ -10,9 +10,9 @@ import org.academiadecodigo.towerdefense.object.interfaces.MovableRepresentable;
 public class BaseEnemy extends AbstractEnemy {
 
 
-    public BaseEnemy(MovableRepresentable representation, int xPos, int yPos, int hp) {
+    public BaseEnemy(MovableRepresentable representation, int xPos, int yPos) {
 
-        super(representation, GameObjectType.BASE_ENEMY, xPos, yPos, hp);
+        super(representation, GameObjectType.BASE_ENEMY, xPos, yPos);
     }
 
     public void updatepic() {

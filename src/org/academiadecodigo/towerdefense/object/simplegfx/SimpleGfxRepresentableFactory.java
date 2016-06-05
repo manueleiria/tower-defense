@@ -1,5 +1,6 @@
 package org.academiadecodigo.towerdefense.object.simplegfx;
 
+import org.academiadecodigo.towerdefense.Level;
 import org.academiadecodigo.towerdefense.object.gameobject.GameObjectType;
 import org.academiadecodigo.towerdefense.object.gameobject.TileType;
 import org.academiadecodigo.towerdefense.object.interfaces.Representable;
@@ -43,6 +44,9 @@ public class SimpleGfxRepresentableFactory implements RepresentableFactory {
 
             case MENU:
                 representable = new SimpleGfxMenu(xPos, yPos);
+                break;
+
+            case SCOREBOARD: new SimpleGfxScoreBoard(xPos, yPos);
                 break;
 
         }
