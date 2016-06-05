@@ -1,6 +1,5 @@
 package org.academiadecodigo.towerdefense.object.gameobject;
 
-import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.towerdefense.object.interfaces.Representable;
 
 /**

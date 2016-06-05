@@ -8,7 +8,7 @@ import org.academiadecodigo.towerdefense.object.simplegfx.SimpleGfxScoreBoard;
  */
 public class Game {
 
-    private static final int DELAY = 10;
+    private static final int DELAY = 20;
     private ObjectFactory factory;
     private Level currentLevel;
     private Field field;
@@ -43,9 +43,10 @@ public class Game {
                 LevelFlow.getEnemyBaseX(currentLevel),
                 LevelFlow.getEnemyBaseY(currentLevel));
 
-        //scoreBoard = (ScoreBoard) factory.createObject(GameObjectType.SCOREBOARD, 1020, 580);
-        SimpleGfxScoreBoard scoreBoard = new SimpleGfxScoreBoard(1020, 580);
-        scoreBoard.currentScore(currentLevel);
+        scoreBoard = (ScoreBoard) factory.createObject(GameObjectType.SCOREBOARD, 1020, 580);
+        factory.giveScoreBoard(scoreBoard);
+
+
 
         enemies = new AbstractEnemy[LevelFlow.getEnemyAmount(currentLevel)];
     }

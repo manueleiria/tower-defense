@@ -10,11 +10,16 @@ import org.academiadecodigo.towerdefense.object.interfaces.RepresentableFactory;
  */
 public class ObjectFactory {
     private RepresentableFactory factory;
+    private ScoreBoard scoreBoard;
 
 
     public ObjectFactory(RepresentableFactory factory) {
 
         this.factory = factory;
+    }
+
+    public void giveScoreBoard(ScoreBoard scoreBoard) {
+        this.scoreBoard = scoreBoard;
     }
 
 
@@ -44,7 +49,7 @@ public class ObjectFactory {
                break;
 
            case BASE_ENEMY:
-               gameObject = new BaseEnemy((MovableRepresentable) factory.createRepresentableObject(type, xPos, yPos), xPos, yPos);
+               gameObject = new BaseEnemy((MovableRepresentable) factory.createRepresentableObject(type, xPos, yPos), xPos, yPos, scoreBoard);
                break;
 
            case BUTTON:

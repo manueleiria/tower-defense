@@ -1,9 +1,7 @@
 package org.academiadecodigo.towerdefense;
 
-import org.academiadecodigo.towerdefense.object.gameobject.GameObjectType;
 import org.academiadecodigo.towerdefense.object.gameobject.Menu;
 import org.academiadecodigo.towerdefense.object.gameobject.ObjectFactory;
-import org.academiadecodigo.towerdefense.object.interfaces.Representable;
 import org.academiadecodigo.towerdefense.object.interfaces.RepresentableFactory;
 import org.academiadecodigo.towerdefense.object.simplegfx.SimpleGfxMenu;
 import org.academiadecodigo.towerdefense.object.simplegfx.SimpleGfxRepresentableFactory;

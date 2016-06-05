@@ -5,7 +5,7 @@ import org.academiadecodigo.simplegraphics.mouse.MouseEvent;
 import org.academiadecodigo.simplegraphics.mouse.MouseHandler;
 import org.academiadecodigo.towerdefense.Level;
 import org.academiadecodigo.towerdefense.object.interfaces.Representable;
-import org.academiadecodigo.towerdefense.object.simplegfx.SimpleGfxRepresentation;
+
 
 /**
  * Created by codecadet on 04/06/16.

@@ -124,7 +124,7 @@ public class LevelFlow {
         enemyBaseX[0] = 30;
         enemyBaseY[0] = 1;
 
-        enemyAmount[0] = 10;
+        enemyAmount[0] = 6;
 
         enemySpawnX[0] = 31;
         enemySpawnY[0] = 3;
@@ -138,7 +138,7 @@ public class LevelFlow {
         enemyBaseX[1] = 30;
         enemyBaseY[1] = 1;
 
-        enemyAmount[1] = 15;
+        enemyAmount[1] = 9;
 
         enemySpawnX[1] = 31;
         enemySpawnY[1] = 3;
@@ -152,7 +152,7 @@ public class LevelFlow {
         enemyBaseX[2] = 30;
         enemyBaseY[2] = 1;
 
-        enemyAmount[2] = 15;
+        enemyAmount[2] = 12;
 
         enemySpawnX[2] = 31;
         enemySpawnY[2] = 3;

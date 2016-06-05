@@ -15,12 +15,14 @@ public abstract class AbstractEnemy extends AbstractMovableObject implements Sho
     private int hitPoints = 30;
     private boolean isAlive = true;
     private Mouse mouse;
+    private ScoreBoard scoreBoard;
 
 
-    public AbstractEnemy(MovableRepresentable representation, GameObjectType type, int xPos, int yPos) {
+    public AbstractEnemy(MovableRepresentable representation, GameObjectType type, int xPos, int yPos, ScoreBoard scoreBoard) {
         super(representation, type, xPos, yPos);
         dir = Direction.STOPPED;
         mouse = new Mouse(this);
+        this.scoreBoard = scoreBoard;
     }
 
 
@@ -231,6 +233,7 @@ public abstract class AbstractEnemy extends AbstractMovableObject implements Sho
             setDead();
             dir = Direction.STOPPED;
             ((MovableRepresentable)getRepresentation()).changeAnim(dir);
+            scoreBoard.increaseScore();
         }
     }
 
