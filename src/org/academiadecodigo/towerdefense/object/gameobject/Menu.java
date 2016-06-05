@@ -15,11 +15,14 @@ public class Menu extends AbstractObject implements MouseHandler {
     private Mouse mouse;
     private Button buttonLevel1;
     private Button buttonLevel2;
+    private Button buttonLevel3;
 
     private int button1X = 550;
     private int button1Y = 240;
     private int button2X = 550;
     private int button2Y = 275;
+    private int button3X = 550;
+    private int button3Y = 310;
     private int buttonSizeX = 80;
     private int buttonSizeY = 35;
     private boolean isPlay = false;
@@ -37,8 +40,11 @@ public class Menu extends AbstractObject implements MouseHandler {
     }
 
     public void init() {
+
+        mouse = new Mouse(this);
         buttonLevel1 = (Button)factory.createButton(button1X, button1Y, "resources/menu/buttonLevel1.png");
         buttonLevel2 = (Button)factory.createButton(button2X, button2Y, "resources/menu/buttonLevel2.png");
+        buttonLevel3 = (Button) factory.createButton(button3X, button3Y, "resources/menu/buttonLevel3.png");
 
     }
 
@@ -46,6 +52,7 @@ public class Menu extends AbstractObject implements MouseHandler {
         getRepresentation().clear();
         buttonLevel1.getRepresentation().clear();
         buttonLevel2.getRepresentation().clear();
+        buttonLevel3.getRepresentation().clear();
 
     }
 
@@ -71,6 +78,14 @@ public class Menu extends AbstractObject implements MouseHandler {
                 levelPlay = 1;
                 level = levelChosen(levelPlay);
             }
+
+            if ((mouseEvent.getX() > button3X && mouseEvent.getX() < button3X + buttonSizeX) &&
+                    ((mouseEvent.getY() - 25) < button3Y + buttonSizeY && (mouseEvent.getY() - 25) > button3Y)) {
+
+                isPlay = true;
+                levelPlay = 2;
+                level = levelChosen(levelPlay);
+            }
         }
     }
 
@@ -87,10 +102,13 @@ public class Menu extends AbstractObject implements MouseHandler {
         switch(level) {
             case 0:
                 return Level.LEVEL1;
-            case 1:
-                //return null;
                 break;
-            default:
+            case 1:
+                return Level.LEVEL2;
+                break;
+            case 2:
+                return Level.LEVEL3;
+                break;
         }
         return null;
     }

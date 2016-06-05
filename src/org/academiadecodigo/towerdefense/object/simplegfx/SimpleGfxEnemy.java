@@ -40,7 +40,7 @@ public class SimpleGfxEnemy extends SimpleGfxMovableRepresentation {
 
             case SOUTH:
                 ((Picture) getShape()).load("resources/enemies/base_enemy/enemyDown.png");
-                //System.out.println(dir);
+                System.out.println(dir);
                 break;
 
             case STOPPED:
