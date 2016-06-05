@@ -60,10 +60,9 @@ public class SimpleGfxEnemy extends SimpleGfxMovableRepresentation {
 
     public void move(int dx, int dy) {
 
-        if (getShape() instanceof Movable) {
+        if (getShape() != null && getShape() instanceof Movable) {
 
             ((Movable) getShape()).translate(dx, dy);
-
         }
     }
 

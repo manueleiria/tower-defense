@@ -43,6 +43,11 @@ public class SimpleGfxRepresentation implements Representable {
         return CELL_SIZE;
     }
 
+    public double getCellSizeG() {
+        return CELL_SIZE;
+    }
+
+
     public static double getMarginLeft() {
         return MARGIN_LEFT;
     }

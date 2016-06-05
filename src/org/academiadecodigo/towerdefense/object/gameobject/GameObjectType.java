@@ -12,7 +12,8 @@ public enum GameObjectType {
     BASE_ENEMY(1, 1),
     MENU(3,2),
     BUTTON(2, 1),
-    SCOREBOARD(3, 2);
+    SCOREBOARD(3, 2),
+    END_GAME_SCREEN(12, 5);
 
     private int cols;
     private int rows;

@@ -93,13 +93,6 @@ public class Menu extends AbstractObject implements MouseHandler {
                 level = levelChosen(levelPlay);
             }
 
-            if ((mouseEvent.getX() > button3X && mouseEvent.getX() < button3X + buttonSizeX) &&
-                    ((mouseEvent.getY() - 25) < button3Y + buttonSizeY && (mouseEvent.getY() - 25) > button3Y)) {
-
-                isPlay = true;
-                levelPlay = 2;
-                level = levelChosen(levelPlay);
-            }
 
             if ((mouseEvent.getX() > buttonExitX && mouseEvent.getX() < buttonExitX + buttonSizeX) &&
                     ((mouseEvent.getY() - 25) < buttonExitY + buttonSizeY && (mouseEvent.getY() - 25) > buttonExitY)) {

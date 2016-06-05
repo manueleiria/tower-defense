@@ -16,4 +16,7 @@ public interface Representable {
 
     void clear();
 
+
+    double getCellSizeG();
+
 }

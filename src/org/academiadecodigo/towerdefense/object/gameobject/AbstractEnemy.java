@@ -12,23 +12,21 @@ import org.academiadecodigo.towerdefense.object.simplegfx.SimpleGfxRepresentatio
  */
 public abstract class AbstractEnemy extends AbstractMovableObject implements Shootable, MouseHandler {
     private Direction dir;
-    private int hitPoints = 30;
+    private int hitPoints = 10;
     private boolean isAlive = true;
-    private Mouse mouse;
     private ScoreBoard scoreBoard;
 
 
     public AbstractEnemy(MovableRepresentable representation, GameObjectType type, int xPos, int yPos, ScoreBoard scoreBoard) {
         super(representation, type, xPos, yPos);
         dir = Direction.STOPPED;
-        mouse = new Mouse(this);
         this.scoreBoard = scoreBoard;
     }
 
 
     @Override
     public void animate(int animCounter) {
-        super.animate(animCounter);
+        //super.animate(animCounter);
 
         switch (dir) {
 
@@ -48,7 +46,8 @@ public abstract class AbstractEnemy extends AbstractMovableObject implements Sho
                 moveRepresentable(1, 0);
                 break;
 
-            default:
+            case STOPPED:
+                moveRepresentable(0, 0);
                 break;
         }
     }
@@ -80,7 +79,7 @@ public abstract class AbstractEnemy extends AbstractMovableObject implements Sho
 
                 break;
 
-            default:
+            case STOPPED:
                 break;
         }
     }
@@ -201,24 +200,6 @@ public abstract class AbstractEnemy extends AbstractMovableObject implements Sho
         ((MovableRepresentable)getRepresentation()).changeAnim(dir);
     }
 
-    @Override
-    public void mouseClicked(MouseEvent mouseEvent) {
-
-        System.out.println("Mouse -> Y: " + (mouseEvent.getY()-25) + " x: " + mouseEvent.getX());
-        System.out.println("Repr -> Y " + getRepresentation().getYPos() + " X: " + getRepresentation().getXPos());
-
-        if ((mouseEvent.getX() > this.getRepresentation().getXPos() && mouseEvent.getX() < this.getRepresentation().getXPos() + SimpleGfxRepresentation.getCellSize()) &&
-                ((mouseEvent.getY() - 25) < this.getRepresentation().getYPos() + SimpleGfxRepresentation.getCellSize() && (mouseEvent.getY() - 25) > this.getRepresentation().getYPos())) {
-
-            if (!isAlive) {
-                System.out.println("Enemy is already dead!");
-            } else {
-                loseHP();
-                System.out.println(hitPoints);
-            }
-        }
-    }
-
 
 
     @Override
@@ -254,5 +235,9 @@ public abstract class AbstractEnemy extends AbstractMovableObject implements Sho
 
     public Direction getDir() {
         return dir;
+    }
+
+    public int getHitPoints() {
+        return hitPoints;
     }
 }

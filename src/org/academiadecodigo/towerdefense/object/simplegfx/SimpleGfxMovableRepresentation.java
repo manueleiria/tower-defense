@@ -38,8 +38,10 @@ public class SimpleGfxMovableRepresentation extends SimpleGfxRepresentation impl
     public void move(int dx, int dy) {
 
         if (getShape() instanceof Movable) {
+            if (dir != Direction.STOPPED) {
 
-            ((Movable) getShape()).translate(dx, dy);
+                ((Movable) getShape()).translate(dx, dy);
+            }
         }
     }
 

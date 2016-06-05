@@ -19,6 +19,9 @@ public class LevelFlow {
     private static int[] enemySpawnX;
     private static int[] enemySpawnY;
 
+    private static int[] playerBaseDoorX;
+    private static int[] playerBaseDoorY;
+
 
     public static int[][] drawMap(Level currentLevel) {
         switch (currentLevel) {
@@ -115,11 +118,17 @@ public class LevelFlow {
         enemySpawnX = new int[LEVEL_AMOUNT];
         enemySpawnY = new int[LEVEL_AMOUNT];
 
+        playerBaseDoorX = new int[LEVEL_AMOUNT];
+        playerBaseDoorY = new int[LEVEL_AMOUNT];
+
 
         actionAmount[0] = 12;
 
         playerBaseX[0] = 3;
         playerBaseY[0] = 2;
+
+        playerBaseDoorX[0] =4;
+        playerBaseDoorY[0] =4;
 
         enemyBaseX[0] = 30;
         enemyBaseY[0] = 1;
@@ -135,6 +144,9 @@ public class LevelFlow {
         playerBaseX[1] = 1;
         playerBaseY[1] = 13;
 
+        playerBaseDoorX[1] =2;
+        playerBaseDoorY[1] =15;
+
         enemyBaseX[1] = 30;
         enemyBaseY[1] = 1;
 
@@ -149,10 +161,13 @@ public class LevelFlow {
         playerBaseX[2] = 2;
         playerBaseY[2] = 4;
 
+        playerBaseDoorX[2] =3;
+        playerBaseDoorY[2] =6;
+
         enemyBaseX[2] = 30;
         enemyBaseY[2] = 1;
 
-        enemyAmount[2] = 12;
+        enemyAmount[2] = 11;
 
         enemySpawnX[2] = 31;
         enemySpawnY[2] = 3;
@@ -284,5 +299,13 @@ public class LevelFlow {
 
     public static int getEnemySpawnY(Level currentLevel) {
         return enemySpawnY[currentLevel.getLevelId()];
+    }
+
+    public static int getPlayerBaseDoorX(Level currentLevel) {
+        return playerBaseDoorX[currentLevel.getLevelId()];
+    }
+
+    public static int getPlayerBaseDoorY(Level currentLevel) {
+        return playerBaseDoorY[currentLevel.getLevelId()];
     }
 }

@@ -15,25 +15,28 @@ public class Main {
 
         RepresentableFactory factory = new SimpleGfxRepresentableFactory();
 
-        Menu menu = new Menu(new SimpleGfxMenu(10, 10), 10, 10, new ObjectFactory(factory));
+        while (true) {
 
-        menu.init();
+            Menu menu = new Menu(new SimpleGfxMenu(10, 10), 10, 10, new ObjectFactory(factory));
 
-        try {
-            do {
+            menu.init();
 
-                Thread.sleep(20);
+            try {
+                do {
 
-            } while (!menu.isPlay());
+                    Thread.sleep(20);
 
-            menu.clear();
+                } while (!menu.isPlay());
+
+                menu.clear();
+            } catch (InterruptedException o) {
+                o.getMessage();
+            }
+
+            Game g = new Game(new ObjectFactory(factory), menu.getLevel());
+            g.start();
+
         }
-        catch (InterruptedException o) {
-            o.getMessage();
-        }
-
-        Game g = new Game(new ObjectFactory(factory), menu.getLevel());
-        g.start();
 
     }
 }

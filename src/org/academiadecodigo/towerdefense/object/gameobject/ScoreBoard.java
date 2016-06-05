@@ -9,9 +9,6 @@ import org.academiadecodigo.towerdefense.object.interfaces.ScoreboardRepresentab
  */
 public class ScoreBoard extends AbstractObject {
 
-    private Representable score;
-    private Representable victory;
-    private Representable defeat;
     private int numberOfEnemies;
     private int currentScore;
 

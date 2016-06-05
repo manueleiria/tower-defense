@@ -49,6 +49,10 @@ public class SimpleGfxRepresentableFactory implements RepresentableFactory {
                 representable= new SimpleGfxScoreBoard(xPos, yPos);
                 break;
 
+            case END_GAME_SCREEN:
+                representable = new SimpleGfxEndGameScreen(xPos, yPos);
+                break;
+
         }
 
         return representable;

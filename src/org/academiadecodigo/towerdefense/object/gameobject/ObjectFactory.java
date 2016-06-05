@@ -53,11 +53,15 @@ public class ObjectFactory {
                break;
 
            case BUTTON:
-                gameObject = new Button(factory.createRepresentableObject(type, xPos, yPos), xPos, yPos);
-                break;
+               gameObject = new Button(factory.createRepresentableObject(type, xPos, yPos), xPos, yPos);
+               break;
 
            case SCOREBOARD:
                gameObject = new ScoreBoard(factory.createRepresentableObject(type, xPos, yPos), xPos, yPos);
+               break;
+
+           case END_GAME_SCREEN:
+               gameObject = new EndGameScreen(factory.createRepresentableObject(type, xPos, yPos), xPos, yPos);
                break;
        }
 
@@ -73,4 +77,5 @@ public class ObjectFactory {
 
         return  new Button(factory.createRepresentableButton(xPos, yPos, path), xPos, yPos);
     }
+
 }
