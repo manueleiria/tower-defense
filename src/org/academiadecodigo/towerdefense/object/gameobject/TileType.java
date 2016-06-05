@@ -5,7 +5,8 @@ package org.academiadecodigo.towerdefense.object.gameobject;
  */
 public enum TileType {
     GRASS("grass", false, true),
-    ROAD("road", true, false);
+    ROAD("road", true, false),
+    TREE("tree", false, false);
 
     String texDir;
     boolean isWalkable;

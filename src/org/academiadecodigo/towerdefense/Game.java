@@ -6,7 +6,8 @@ import org.academiadecodigo.towerdefense.object.gameobject.*;
  * Created by codecadet on 23/05/16.
  */
 public class Game {
-    private static final int DELAY = 5;
+
+    private static final int DELAY = 10;
     private ObjectFactory factory;
     private Level currentLevel;
     private Field field;

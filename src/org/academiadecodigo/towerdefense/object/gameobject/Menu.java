@@ -102,13 +102,10 @@ public class Menu extends AbstractObject implements MouseHandler {
         switch(level) {
             case 0:
                 return Level.LEVEL1;
-                break;
             case 1:
                 return Level.LEVEL2;
-                break;
             case 2:
                 return Level.LEVEL3;
-                break;
         }
         return null;
     }
