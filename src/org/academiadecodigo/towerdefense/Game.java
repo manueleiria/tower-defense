@@ -5,6 +5,10 @@ import org.academiadecodigo.simplegraphics.mouse.MouseEvent;
 import org.academiadecodigo.simplegraphics.mouse.MouseHandler;
 import org.academiadecodigo.towerdefense.object.gameobject.*;
 
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
+
 /**
  * Created by codecadet on 23/05/16.
  */
@@ -19,6 +23,7 @@ public class Game implements MouseHandler {
     private PlayerBase playerBase;
     private EnemyBase enemyBase;
     private AbstractEnemy[] enemies;
+    private HashMap<Integer, AbstractEnemy> gameEnemies = new HashMap<>();
     private int createdEnemies;
     private Mouse mouse;
     private boolean gamecycle;
@@ -54,6 +59,10 @@ public class Game implements MouseHandler {
         mouse = new Mouse(this);
 
         enemies = new AbstractEnemy[LevelFlow.getEnemyAmount(currentLevel)];
+
+        for (int i = 0; i < enemies.length; i++) {
+            gameEnemies.put(i, enemies[i]);
+        }
     }
 
 
@@ -172,9 +181,13 @@ public class Game implements MouseHandler {
 
     private void checkDefeat(Level currentLevel) throws InterruptedException{
 
+        Set entrySet = gameEnemies.entrySet();
+        Iterator it = gameEnemies.entrySet().iterator();
+
         if (endGameScreen == null) {
-            for (int i = 0; i < createdEnemies; i++) {
-                if ((enemies[i].getxPos() == LevelFlow.getPlayerBaseDoorX(currentLevel)) && (enemies[i].getyPos() == LevelFlow.getPlayerBaseDoorY(currentLevel))) {
+            while (it.hasNext()) {
+                HashMap.Entry me = (HashMap.Entry)it.next();
+                if ((((AbstractEnemy)me.getValue()).getxPos() == LevelFlow.getPlayerBaseDoorX(currentLevel)) && (((AbstractEnemy)me.getValue()).getyPos() == LevelFlow.getPlayerBaseDoorY(currentLevel))) {
                     endGameScreen = (EndGameScreen) factory.createObject(GameObjectType.END_GAME_SCREEN, 11, 5);
                     endGameScreen.ifDefeat();
                     endGameScreen.init(factory);
@@ -186,21 +199,25 @@ public class Game implements MouseHandler {
     @Override
     public void mouseClicked(MouseEvent mouseEvent) {
 
-        for (int i = 0; i < enemies.length; i++) {
+        Set entrySet = gameEnemies.entrySet();
+        Iterator it = gameEnemies.entrySet().iterator();
 
-            if (enemies[i] != null) {
+        while (it.hasNext()) {
+            HashMap.Entry me = (HashMap.Entry)it.next();
+
+            if (enemies != null) {
 
                 System.out.println("Mouse -> Y: " + (mouseEvent.getY()-25) + " x: " + mouseEvent.getX());
-                System.out.println("Repr -> Y " + enemies[i].getRepresentation().getYPos() + " X: " + enemies[i].getRepresentation().getXPos());
+                System.out.println("Repr -> Y " + ((AbstractEnemy)me).getRepresentation().getYPos() + " X: " + ((AbstractEnemy)me).getRepresentation().getXPos());
 
-                if ((mouseEvent.getX() > enemies[i].getRepresentation().getXPos() && mouseEvent.getX() < enemies[i].getRepresentation().getXPos() + enemies[i].getRepresentation().getCellSizeG()) &&
-                        ((mouseEvent.getY() - 25) < enemies[i].getRepresentation().getYPos() + enemies[i].getRepresentation().getCellSizeG() && (mouseEvent.getY() - 25) > enemies[i].getRepresentation().getYPos())) {
+                if ((mouseEvent.getX() >((AbstractEnemy)me).getRepresentation().getXPos()   && mouseEvent.getX() < ((AbstractEnemy)me).getRepresentation().getXPos() +((AbstractEnemy)me).getRepresentation().getCellSizeG() ) &&
+                        ((mouseEvent.getY() - 25) < ((AbstractEnemy)me).getRepresentation().getYPos() + ((AbstractEnemy)me).getRepresentation().getCellSizeG() && (mouseEvent.getY() - 25) > ((AbstractEnemy)me).getRepresentation().getYPos())) {
 
-                    if (!enemies[i].isAlive()) {
+                    if (!((AbstractEnemy)me).isAlive()) {
                         System.out.println("Enemy is already dead!");
                     } else {
-                        enemies[i].loseHP();
-                        System.out.println(enemies[i].getHitPoints());
+                        ((AbstractEnemy)me).loseHP();
+                        System.out.println(((AbstractEnemy)me).getHitPoints());
                     }
                 }
 
